@@ -2,14 +2,12 @@ import { memo, useEffect } from "react";
 import Image from "next/image";
 import CatalogItem from "./CatalogItem";
 import styled from "@emotion/styled";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
 import Slider from "react-slick";
-import testImage from "../public/img/05905.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import backArrow from "../public/img/FLECHA-back.png";
+import backArrow from "/public/img/FLECHA-back.png";
 
-import nextArrow from "../public/img/FLECHA.png";
+import nextArrow from "/public/img/FLECHA.png";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;

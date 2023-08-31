@@ -3,7 +3,7 @@ import "./globals.css";
 import "/styles/fonts.css";
 
 import { Inter } from "next/font/google";
-import { Providers } from "./providers";
+import { Providers } from "/app/Providers.jsx";
 import CustomNavbar from "@/components/CustomNavbar";
 import { Provider } from "react-redux";
 import { store } from "@/redux/store";

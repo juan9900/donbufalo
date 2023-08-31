@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { DarkHeader, DarkText } from "@/styles";
-import bookImg from "../public/img/LIBRO.png";
+import bookImg from "/public/img/LIBRO.png";
 import Image from "next/image";
 
 export default function BookContainer() {
