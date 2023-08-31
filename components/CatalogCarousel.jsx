@@ -86,7 +86,7 @@ const CatalogCarousel = memo(({ items }) => {
   };
   return (
     <>
-      <div className="w-3/5 mx-auto">
+      <div className="w-4/5 mx-auto">
         <Slider {...settings}>
           {items.map((item) => {
             return (
