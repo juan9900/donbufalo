@@ -13,7 +13,7 @@ export default function TestimonialsContainer() {
   const TestimonialHeader = styled(DarkHeader)``;
 
   return (
-    <TestimonialContainer className="pt-10">
+    <TestimonialContainer id="testimonials-container" className="pt-10">
       <div className="flex flex-col items-center">
         <TestimonialHeader>TESTIMONIOS</TestimonialHeader>
         <div className="w-4/5 flex flex-row justify-between cards-container">

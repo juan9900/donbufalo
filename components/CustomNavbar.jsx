@@ -9,10 +9,11 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   Link,
-  Button,
 } from "@nextui-org/react";
-import { css, useTheme } from "@emotion/react";
+import { useTheme } from "@emotion/react";
+import logo from "/public/img/ISO-LOGO.png";
 import styled from "@emotion/styled";
+import Image from "next/image";
 
 const CustomNavbarItem = styled(NavbarItem)`
   a {
@@ -39,6 +40,12 @@ const onBtnClick = (e) => {
   }, 100);
 };
 
+const BrandLogo = styled(Image)`
+  max-width: 40px;
+  math-style: 40px;
+  margin-right: 0.5rem;
+`;
+
 export default function CustomNavbar() {
   const theme = useTheme();
 
@@ -55,7 +62,8 @@ export default function CustomNavbar() {
     <Navbar
       className="bg-navbarBackground"
       onMenuOpenChange={setIsMenuOpen}
-      position="sticky"
+      // position="sticky"
+      shouldHideOnScroll
     >
       <NavbarContent>
         <NavbarMenuToggle
@@ -63,6 +71,7 @@ export default function CustomNavbar() {
           className="sm:hidden"
         />
         <NavbarBrand>
+          <BrandLogo src={logo} alt="Logo Don Bufalo" />
           <p className="font-bold text-inherit">DONBUFALO</p>
         </NavbarBrand>
       </NavbarContent>
@@ -100,6 +109,22 @@ export default function CustomNavbar() {
           </Link> */}
           <button goto="catalogo-container" onClick={onBtnClick}>
             Catálogo
+          </button>
+        </CustomNavbarItem>
+        <CustomNavbarItem>
+          {/* <Link color="foreground" smooth spy to="#catalogo-container">
+            Catálogo
+          </Link> */}
+          <button goto="book-container" onClick={onBtnClick}>
+            Libro
+          </button>
+        </CustomNavbarItem>
+        <CustomNavbarItem>
+          {/* <Link color="foreground" smooth spy to="#catalogo-container">
+            Catálogo
+          </Link> */}
+          <button goto="testimonials-container" onClick={onBtnClick}>
+            Testimonios
           </button>
         </CustomNavbarItem>
         <CustomNavbarItem>

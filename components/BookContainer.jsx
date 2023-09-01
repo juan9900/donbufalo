@@ -36,7 +36,7 @@ export default function BookContainer() {
   `;
 
   return (
-    <BookContainer>
+    <BookContainer id="book-container">
       <CustomContainer className="flex flex-row items-start justify-center mx-auto">
         <div className="w-3/6 flex flex-col justify-center mt-20 pt-10">
           <DarkHeaderBookContainer>
