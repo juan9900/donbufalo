@@ -1,15 +1,12 @@
 import CatalogCarousel from "./CatalogCarousel";
 import styled from "@emotion/styled";
 import { data } from "@/mockData/bufalosData";
+import { TexturedContainer } from "@/styles";
 
 export default function CatalogContainer() {
-  const CatalogContainer = styled.div`
-    background: url("/img/TEXTURA.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  const CatalogContainer = styled(TexturedContainer)`
     padding-top: 10rem;
-    padding-bottom: 7rem;
+    padding-bottom: 5rem;
 
     position: relative;
 
@@ -36,6 +33,7 @@ export default function CatalogContainer() {
       -webkit-text-stroke: 1px
         ${(props) => props.theme.colors.transparentSecondary};
       text-stroke: 1px ${(props) => props.theme.colors.transparentSecondary};
+      z-index: 0;
     }
 
     .subtitle {
@@ -46,7 +44,7 @@ export default function CatalogContainer() {
     }
   `;
   return (
-    <CatalogContainer>
+    <CatalogContainer id="catalogo-container">
       <div className="relative title-container">
         <h2 className="mx-auto"> CATÁLOGO DE BÚFALOS</h2>
       </div>

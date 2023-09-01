@@ -36,7 +36,10 @@ export default function HeaderContainer() {
     font-family: "Poppins-regular", sans-serif;
   `;
   return (
-    <CustomHeader className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-10 pb-20">
+    <CustomHeader
+      id="header-container"
+      className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-10 pb-20"
+    >
       <div className="flex items-center flex-col">
         <Image
           src={"/img/ISO-LOGO-CON-EFECTO.png"}

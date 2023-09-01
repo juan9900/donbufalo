@@ -1,4 +1,4 @@
-import { DarkHeader } from "@/styles";
+import { DarkHeader, TexturedContainer } from "@/styles";
 import styled from "@emotion/styled";
 import Image from "next/image";
 import planImg from "../public/img/IMAGEN-3.png";
@@ -30,7 +30,7 @@ export default function PlanContainer() {
     margin-top: 1.5rem;
     font-family: "Poppins-regular", sans-serif;
   `;
-  const PlanContainer = styled.div`
+  const PlanContainer = styled(TexturedContainer)`
     background: url("/img/TEXTURA.jpg");
     background-size: cover;
     background-position: center;
@@ -74,7 +74,7 @@ export default function PlanContainer() {
     }
   `;
   return (
-    <PlanContainer>
+    <PlanContainer id="plan-container">
       <FullHeader className="text-center pt-2 pb-2">
         TE OBSEQUIAMOS NUESTRO <FullHeaderSpan>PLAN SANITARIO</FullHeaderSpan>
       </FullHeader>

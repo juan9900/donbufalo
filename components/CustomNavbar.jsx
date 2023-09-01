@@ -14,80 +14,116 @@ import {
 import { css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 
-const CustomNavbarWrapper = styled.div`
-  background-color: red;
-`;
-
 const CustomNavbarItem = styled(NavbarItem)`
   a {
     color: ${(props) =>
       props.isActive
-        ? "red" /* Set the color for active items */
+        ? "#7ef07e" /* Set the color for active items */
         : props.theme.colors.foreground}; /* Use the theme's foreground color */
   }
 `;
+
+// A scroller function that takes element id and smooth scrolls to it.
+const scroll2El = (elID, extraOffset = 60) => {
+  window.scrollTo({
+    top: document.getElementById(elID).offsetTop - extraOffset,
+    behavior: "smooth",
+  });
+};
+
+const onBtnClick = (e) => {
+  e.preventDefault();
+  const goto = e.target.getAttribute("goto");
+  setTimeout(() => {
+    scroll2El(goto, goto.includes("catalogo") ? 0 : 60);
+  }, 100);
+};
 
 export default function CustomNavbar() {
   const theme = useTheme();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const menuItems = ["Inicio", "Catálogo", "Nosotros", "Contacto"];
+  const menuItems = [
+    "Inicio",
+    "Nosotros",
+    "Plan Sanitario",
+    "Catálogo",
+    "Contacto",
+  ];
   return (
-    <CustomNavbarWrapper>
-      <Navbar className="bg-navbarBackground" onMenuOpenChange={setIsMenuOpen}>
-        <NavbarContent>
-          <NavbarMenuToggle
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="sm:hidden"
-          />
-          <NavbarBrand>
-            <p className="font-bold text-inherit">DONBUFALO</p>
-          </NavbarBrand>
-        </NavbarContent>
+    <Navbar
+      className="bg-navbarBackground"
+      onMenuOpenChange={setIsMenuOpen}
+      position="sticky"
+    >
+      <NavbarContent>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden"
+        />
+        <NavbarBrand>
+          <p className="font-bold text-inherit">DONBUFALO</p>
+        </NavbarBrand>
+      </NavbarContent>
 
-        <NavbarContent className="hidden sm:flex gap-4" justify="center">
-          <CustomNavbarItem isActive>
-            <Link color="foreground" href="#">
-              Inicio
+      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+        <CustomNavbarItem isActive>
+          {/* <Link color="foreground" smooth spy to="#">
+            Inicio
+          </Link> */}
+          <button goto="header-container" onClick={onBtnClick}>
+            Inicio
+          </button>
+        </CustomNavbarItem>
+
+        <CustomNavbarItem>
+          {/* <Link color="foreground" smooth spy to="#us-container">
+
+            Nosotros
+          </Link> */}
+          <button goto="us-container" onClick={onBtnClick}>
+            Nosotros
+          </button>
+        </CustomNavbarItem>
+        <CustomNavbarItem>
+          {/* <Link href="#plan-container" smooth spy to="page">
+            Plan Sanitario
+          </Link> */}
+          <button goto="plan-container" onClick={onBtnClick}>
+            Plan Sanitario
+          </button>
+        </CustomNavbarItem>
+        <CustomNavbarItem>
+          {/* <Link color="foreground" smooth spy to="#catalogo-container">
+            Catálogo
+          </Link> */}
+          <button goto="catalogo-container" onClick={onBtnClick}>
+            Catálogo
+          </button>
+        </CustomNavbarItem>
+        <CustomNavbarItem>
+          {/* <Link color="foreground" smooth spy to="#contacto-container">
+
+            Contacto
+          </Link> */}
+          <button goto="contacto-container" onClick={onBtnClick}>
+            Contacto
+          </button>
+        </CustomNavbarItem>
+      </NavbarContent>
+      <NavbarContent justify="end">
+        <CustomNavbarItem className="hidden lg:flex"></CustomNavbarItem>
+      </NavbarContent>
+      <NavbarMenu>
+        {menuItems.map((item, index) => (
+          <NavbarMenuItem key={`${item}-${index}`}>
+            <Link color={"foreground"} className="w-full" href="#" size="lg">
+              {item}
             </Link>
-          </CustomNavbarItem>
-          <CustomNavbarItem>
-            <Link color="foreground" href="#us-container">
-              Nosotros
-            </Link>
-          </CustomNavbarItem>
-          <CustomNavbarItem>
-            <Link href="#" aria-current="page">
-              Plan Sanitario
-            </Link>
-          </CustomNavbarItem>
-          <CustomNavbarItem>
-            <Link color="foreground" href="#">
-              Catálogo
-            </Link>
-          </CustomNavbarItem>
-          <CustomNavbarItem>
-            <Link color="foreground" href="#">
-              Contacto
-            </Link>
-          </CustomNavbarItem>
-        </NavbarContent>
-        <NavbarContent justify="end">
-          <CustomNavbarItem className="hidden lg:flex">
-            <Link href="#">Login</Link>
-          </CustomNavbarItem>
-        </NavbarContent>
-        <NavbarMenu>
-          {menuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
-              <Link color={"foreground"} className="w-full" href="#" size="lg">
-                {item}
-              </Link>
-            </NavbarMenuItem>
-          ))}
-        </NavbarMenu>
-      </Navbar>
-    </CustomNavbarWrapper>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
+    </Navbar>
   );
 }

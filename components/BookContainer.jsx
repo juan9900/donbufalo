@@ -1,15 +1,10 @@
 import styled from "@emotion/styled";
-import { DarkHeader, DarkText } from "@/styles";
+import { DarkHeader, DarkText, TexturedContainer } from "@/styles";
 import bookImg from "/public/img/LIBRO.png";
 import Image from "next/image";
 
 export default function BookContainer() {
-  const BookContainer = styled.div`
-    background: url("/img/TEXTURA.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  `;
+  const BookContainer = styled(TexturedContainer)``;
   const DarkHeaderBookContainer = styled(DarkHeader)`
     color: ${(props) => props.theme.colors.secondary};
     font-size: 5.3em;
@@ -34,6 +29,10 @@ export default function BookContainer() {
     &:hover {
       background: ${(props) => props.theme.colors.secondaryDarker};
     }
+  `;
+
+  const BookImage = styled(Image)`
+    width: 80%;
   `;
 
   return (
@@ -68,8 +67,8 @@ export default function BookContainer() {
           </BuyButton>
         </div>
 
-        <div className="w-2/5 flex flex-col items-center ">
-          <Image src={bookImg} alt={`Libro "El Búfalo"`} />
+        <div className=" w-3/5 flex flex-col items-end ">
+          <BookImage src={bookImg} alt={`Libro "El Búfalo"`} />
         </div>
       </CustomContainer>
     </BookContainer>

@@ -5,11 +5,9 @@ import "/styles/fonts.css";
 import { Inter } from "next/font/google";
 import { Providers } from "/app/Providers.jsx";
 import CustomNavbar from "@/components/CustomNavbar";
-import { Provider } from "react-redux";
-import { store } from "@/redux/store";
 import { ThemeProvider } from "@emotion/react";
-import styled from "@emotion/styled";
 import "tailwindcss/tailwind.css";
+import Footer from "@/components/Footer";
 
 const theme = {
   colors: {
@@ -19,9 +17,11 @@ const theme = {
     transparentSecondary: "#592c334a",
     black: "#2e2c2e",
     foreground: "#fdfdfd",
+    foregroundDarker: "#d1d1d1",
     darkText: "#212427",
     gray: "#a6a4a4",
     cardBackground: "#eeeeee",
+    bgDark: "#202124",
   },
 };
 const inter = Inter({ subsets: ["latin"] });
@@ -42,6 +42,7 @@ export default function RootLayout({ children }) {
           <Providers>
             <main>{children}</main>
           </Providers>
+          <Footer />
         </body>
       </html>
     </ThemeProvider>

@@ -14,3 +14,10 @@ export const DarkText = styled.p`
   margin-top: 1.5rem;
   font-family: "Poppins-regular", sans-serif;
 `;
+
+export const TexturedContainer = styled.div`
+  background: url("/img/TEXTURA.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+`;
