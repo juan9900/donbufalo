@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import backArrow from "/public/img/FLECHA-back.png";
 import { useCatalog } from "@/hooks/useCatalog";
 import nextArrow from "/public/img/FLECHA.png";
+import { DarkText } from "@/styles";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -95,24 +96,30 @@ const CustomSlider = styled(Slider)`
 `;
 
 const CatalogCarousel = memo(({ items }) => {
-  const data = useCatalog();
-  const valid = data.filter((animal) => animal.data.status === "Activo");
+  const data = null;
+  const valid = data
+    ? data.filter((animal) => animal.data.status === "Activo")
+    : null;
   return (
     <>
       <div className="w-4/5 mx-auto ">
         <CustomSlider {...settings}>
-          {valid.map((bufalo) => {
-            return (
-              <CustomCardWrapper key={bufalo.data.ARETE}>
-                <CatalogItem
-                  code={bufalo.data.ARETE}
-                  birthday={bufalo.data["fecha nacimiento"]}
-                  imageUrl={bufalo.data["foto animal"]}
-                  category={bufalo.data.calsificacion}
-                />
-              </CustomCardWrapper>
-            );
-          })}
+          {valid ? (
+            valid.map((bufalo) => {
+              return (
+                <CustomCardWrapper key={bufalo.data.ARETE}>
+                  <CatalogItem
+                    code={bufalo.data.ARETE}
+                    birthday={bufalo.data["fecha nacimiento"]}
+                    imageUrl={bufalo.data["foto animal"]}
+                    category={bufalo.data.calsificacion}
+                  />
+                </CustomCardWrapper>
+              );
+            })
+          ) : (
+            <DarkText>Actualmente no hay animales para mostrar</DarkText>
+          )}
         </CustomSlider>
       </div>
       {/* <div className="flex flex-row w-3/5 justify-between mx-auto mt-10">
