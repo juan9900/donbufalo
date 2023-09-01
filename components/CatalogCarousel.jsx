@@ -96,7 +96,7 @@ const CustomSlider = styled(Slider)`
 `;
 
 const CatalogCarousel = memo(({ items }) => {
-  const data = null;
+  const data = useCatalog();
   const valid = data
     ? data.filter((animal) => animal.data.status === "Activo")
     : null;
