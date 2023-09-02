@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import Image from "next/image";
 
 export default function CatalogItem({ code, imageUrl, category, birthday }) {
+  console.log(imageUrl);
   const CustomCard = styled.a`
     width: 80%;
     margin: 0 auto;

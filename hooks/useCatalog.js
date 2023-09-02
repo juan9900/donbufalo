@@ -8,6 +8,9 @@ export const useCatalog = () => {
       try {
         const response = await fetch("/api/make/", {
           method: "GET",
+          headers: {
+            "Cache-Control": "no-cache",
+          },
         });
         const data = await response.json();
         setData(data.data.records);

@@ -95,11 +95,14 @@ const CustomSlider = styled(Slider)`
   }
 `;
 
-const CatalogCarousel = memo(({ items }) => {
+const CatalogCarousel = () => {
   const data = useCatalog();
   const valid = data
     ? data.filter((animal) => animal.data.status === "Activo")
     : null;
+
+  console.log(data);
+  console.log(valid);
   return (
     <>
       <div className="w-4/5 mx-auto ">
@@ -122,23 +125,9 @@ const CatalogCarousel = memo(({ items }) => {
           )}
         </CustomSlider>
       </div>
-      {/* <div className="flex flex-row w-3/5 justify-between mx-auto mt-10">
-        {items.map((item) => {
-          return (
-            <CatalogItem
-              key={item.code}
-              code={item.code}
-              birthday={item.birthday}
-              imageUrl={item.imageUrl}
-              category={item.category}
-            />
-          );
-        })}
-      </div> */}
-      {/* <Image src={"/public/img/"} /> */}
     </>
   );
-});
+};
 
 CatalogCarousel.displayName = "CatalogCarousel";
 
