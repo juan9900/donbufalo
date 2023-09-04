@@ -55,6 +55,10 @@ const CustomCard = styled.div`
       display: none;
     }
   }
+
+  @media screen and (max-width: 1281px) {
+    margin: 0 1rem;
+  }
 `;
 
 const TestimonialText = styled.p`
@@ -72,6 +76,11 @@ const FloatingImg = styled(Image)`
   @media screen and (max-width: 768px) {
     width: 40%;
     bottom: 70%;
+  }
+
+  @media screen and (max-width: 1281px) {
+    width: 45%;
+    bottom: 65% !important;
   }
 `;
 

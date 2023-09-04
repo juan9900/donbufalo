@@ -8,7 +8,7 @@ export default function UsContainer() {
     background-size: cover;
     background-position: 0 50%;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1281px) {
       padding: 3rem 1rem;
       margin-top: -1rem;
       background: url("/img/TEXTURA.jpg");
@@ -19,9 +19,9 @@ export default function UsContainer() {
 
   return (
     <UsContainer id="us-container">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 2xl:grid-cols-2 gap-4">
         <div></div>
-        <div className="flex items-center flex-col">
+        <div className="flex items-center flex-col md:w-3/5 md:mx-auto">
           <DarkHeader className="text-center text-primary">
             DESCUBRE QUIÉNES SOMOS Y CÓMO PUEDES INVERTIR
             <DarkHeaderSpan className="text-secondary">

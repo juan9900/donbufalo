@@ -7,15 +7,19 @@ export default function BookContainer() {
   const BookContainer = styled(TexturedContainer)``;
   const DarkHeaderBookContainer = styled(DarkHeader)`
     font-size: 5.3em;
-    @media screen and (max-width: 420px) {
+    @media screen and (max-width: 720px) {
       font-size: 3rem;
+    }
+
+    @media screen and (max-width: 1281px) {
+      font-size: 4rem;
     }
   `;
 
   const CustomContainer = styled.div`
     max-width: 80%;
     min-height: 10rem;
-    height: 40rem;
+    height: 45rem;
     @media screen and (max-width: 768px) {
       height: auto;
     }

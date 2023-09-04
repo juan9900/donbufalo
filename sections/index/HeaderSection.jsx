@@ -9,6 +9,10 @@ export default function HeaderContainer() {
     background-position: 0 60%;
     background-repeat: no-repeat;
     height: 100vh;
+
+    @media screen and (max-width: 1281px) {
+      background: url("/img/FONDO.jpg");
+    }
   `;
 
   const HeaderTitle = styled.h1`
@@ -40,7 +44,7 @@ export default function HeaderContainer() {
   return (
     <CustomHeader
       id="header-container"
-      className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-10 pb-0  md:pb-20"
+      className="grid grid-cols-1 2xl:grid-cols-2 gap-4 pt-10 pb-0  md:pb-20"
     >
       <div className="flex items-center flex-col pt-10 md:pt-0 relative">
         <div className="flex-1 relative  w-full">

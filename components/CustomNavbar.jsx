@@ -20,7 +20,7 @@ const CustomNavbarItem = styled(NavbarItem)``;
 // A scroller function that takes element id and smooth scrolls to it.
 const scroll2El = (elID, extraOffset = 60) => {
   window.scrollTo({
-    top: document.getElementById(elID).offsetTop - extraOffset,
+    top: document.getElementById(elID).offsetTop - 60,
     behavior: "smooth",
   });
 };

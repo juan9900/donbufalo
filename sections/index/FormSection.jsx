@@ -75,9 +75,7 @@ const FormTextContainer = styled.div`
 const CustomSubmit = styled(CustomInput)`
   border-radius: 10rem;
   padding: 0.5rem 2rem;
-  margin-left: auto;
   width: fit-content;
-  margin-right: 2rem;
   margin-top: 2rem;
 `;
 
@@ -218,7 +216,7 @@ export default function FormContainer() {
           </FormTextContainer>
 
           <CustomSubmit
-            className="self-end bg-foreground hover:bg-foregroundDarker text-darkText hover:cursor-pointer"
+            className="md:ml-auto md:mr-5 mx-auto md:self-end bg-foreground hover:bg-foregroundDarker text-darkText hover:cursor-pointer"
             onSubmit={onSubmit}
             type="submit"
             value={"ENVIAR"}
