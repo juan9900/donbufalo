@@ -36,9 +36,9 @@ function SamplePrevArrow(props) {
 }
 
 const CustomCardWrapper = styled.div`
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   height: 100%;
 `;
 
@@ -82,20 +82,26 @@ const settings = {
 };
 
 const CustomSlider = styled(Slider)`
+  height: 25rem;
+  .slick-list {
+    height: 100%;
+  }
   .slick-track {
     display: flex !important;
+    height: 100%;
   }
 
   .slick-slide {
-    height: inherit !important;
-    margin: 1.5rem 0;
+    height: 100%;
+    margin: 0;
+    min-height: 100%;
   }
 
   .slick-slide > div {
     height: 100%;
   }
 
-  @media screen and (max-width: 420px) {
+  @media screen and (max-width: 768px) {
     .slick-dots {
       bottom: -45px;
     }
@@ -104,11 +110,11 @@ const CustomSlider = styled(Slider)`
 
 const CustomSpinner = styled(Spinner)`
   .border-b-warning {
-    border-bottom-color: ${(props) => props.theme.colors.secondary};
+    border-bottom-color: #592c33;
   }
 
   span {
-    color: ${(props) => props.theme.colors.secondary};
+    color: #2c272b;
   }
 `;
 
@@ -122,14 +128,15 @@ const CatalogCarousel = () => {
       </div>
     );
   }
+
   return (
     <>
       <div className="w-4/5 mx-auto md:mt-10 mt-5 ">
-        <CustomSlider {...settings}>
+        <CustomSlider {...settings} className="">
           {data ? (
             data.map((bufalo) => {
               return (
-                <CustomCardWrapper key={bufalo.data.ARETE}>
+                <CustomCardWrapper className="py-10" key={bufalo.data.ARETE}>
                   <CatalogItem
                     code={bufalo.data.ARETE}
                     birthday={bufalo.data["fecha nacimiento"]}

@@ -1,3 +1,4 @@
+"use client";
 import styled from "@emotion/styled";
 import igLogo from "/public/icons/INSTAGRAM.svg";
 import fbLogo from "/public/icons/FACEBOOK.svg";
@@ -6,7 +7,6 @@ import ytLogo from "/public/icons/YOUTUBE.svg";
 import Image from "next/image";
 
 const CustomFooter = styled.div`
-  background: ${(props) => props.theme.colors.bgDark};
   padding: 2rem 1rem;
 `;
 
@@ -17,7 +17,7 @@ const SocialLogo = styled(Image)`
 
 export default function Footer() {
   return (
-    <CustomFooter className="flex flex-col">
+    <CustomFooter className="flex flex-col bg-darkBackground">
       <div className="flex flex-row justify-center">
         <a href="https://www.instagram.com/donbufalo/?hl=en" target="_blank">
           <SocialLogo src={igLogo} alt="Instagram logo" />

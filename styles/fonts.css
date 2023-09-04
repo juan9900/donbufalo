@@ -1,8 +1,10 @@
 @font-face {
+  font-display: swap;
   font-family: "Anzeigen";
   src: url(/fonts/Anzeigen\ Grotesk\ D\ Regular.woff);
 }
 @font-face {
+  font-display: swap;
   font-family: "Poppins-regular";
   src: url(/fonts/Poppins-Regular.woff);
   color: #ffffff4a;

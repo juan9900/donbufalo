@@ -8,25 +8,14 @@ const CustomCard = styled.a`
   width: 80%;
   margin: 0 auto;
   position: relative;
-  background: ${(props) => props.theme.colors.cardBackground};
   height: 100%;
   box-shadow: 1px 1px 10px #3b3b3ba2;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   border-radius: 1rem;
-  img {
-    max-width: 100%;
-    max-height: 100%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 100% 100%;
-    border-radius: 0;
-  }
 
   p {
-    color: ${(props) => props.theme.colors.primary};
     font-weight: 400;
     font-family: "Poppins-regular", sans-serif;
   }
@@ -34,13 +23,6 @@ const CustomCard = styled.a`
   .animal-info p:first-of-type {
     font-size: 1.5em;
   }
-`;
-
-const CardTitle = styled.h4`
-  font-weight: 800;
-  font-family: "Anzeigen", sans-serif;
-  font-size: 2.5rem;
-  color: ${(props) => props.theme.colors.primary};
 `;
 
 const MissingImg = styled.div`
@@ -79,31 +61,36 @@ export default function CatalogItem({ code, imageUrl, category, birthday }) {
     <CustomCard
       href={`https://donbufalo.com/${code}`}
       target="_blank"
-      className="flex flex-col"
+      className="flex flex-col h-full bg-cardBackground"
     >
-      <CustomSkeleton isLoaded={isLoaded} className="rounded-t-lg h-full">
-        <div className="h-full rounded-t-lg flex-1">
+      <CustomSkeleton
+        isLoaded={isLoaded}
+        className="relative w-full rounded-t-lg h-full flex-1"
+      >
+        <div className="h-full rounded-t-lg flex-1 ">
           {showError ? (
             <MissingImg className="rounded-t-lg">
-              <p>No se pudo cargar la imagen</p>
+              <p className="text-primary">No se pudo cargar la imagen</p>
             </MissingImg>
           ) : (
             <Image
               onError={setLoaded}
               onLoad={toggleLoad}
-              width={600}
-              height={600}
+              fill
+              objectFit="fill"
               src={imageUrl}
               alt={`Bufalo de Don Bufalo, código: ${code}`}
+              sizes="(max-width: 768px) 40vw, 20vw"
+              className="w-full"
             />
           )}
         </div>
       </CustomSkeleton>
 
       <div className="animal-info py-5 text-center">
-        <p>{code}</p>
+        <p className="text-primary">{code}</p>
 
-        <p>CATEGORÍA: {category}</p>
+        <p className="text-primary">CATEGORÍA: {category}</p>
       </div>
     </CustomCard>
   );

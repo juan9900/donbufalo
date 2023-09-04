@@ -23,19 +23,21 @@ module.exports = {
       themes: {
         light: {
           colors: {
-            background: "##fdfdfd",
-            foreground: "#FFF",
-            primary: {
-              DEFAULT: "#FFF",
-              foreground: "#000000",
-            },
-            navbarBackground: {
-              DEFAULT: "#1b181a",
-            },
-            secondary: {
-              DEFAULT: "#282829",
-            },
+            background: "#fdfdfd",
+            foreground: "#fdfdfd",
+            darkBackground: "#1b181a",
+
             focus: "#452817",
+            primary: "#2c272b",
+            secondary: "#592c33",
+            secondaryDarker: "#472429",
+            transparentSecondary: "#592c334a",
+            black: "#2e2c2e",
+            foregroundDarker: "#d1d1d1",
+            darkText: "#212427",
+            gray: "#a6a4a4",
+            cardBackground: "#eeeeee",
+            bgDark: "#202124",
           },
         },
       },

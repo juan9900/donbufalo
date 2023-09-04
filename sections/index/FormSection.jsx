@@ -5,28 +5,21 @@ import styled from "@emotion/styled";
 import { useForm } from "react-hook-form";
 
 const CustomFormContainer = styled.div`
-  background: ${(props) => props.theme.colors.secondary};
-
   padding-bottom: 5rem;
 `;
 
 const FormHeader = styled(DarkHeader)`
   color: #fff;
 `;
-const CustomContainer = styled.div`
-  max-width: 85%;
-  margin: 0 auto;
-`;
+const CustomContainer = styled.div``;
 
 const CustomLabel = styled.label`
-  color: ${(props) => props.theme.colors.foreground};
   font-family: "Anzeigen", sans-serif;
   font-size: 1.5rem;
   flex: 1.5;
 `;
 
 const CustomInput = styled.input`
-  background: transparent;
   border: 1px solid transparent;
   border-radius: 3px;
   padding: 0.15rem 0.3rem;
@@ -80,18 +73,12 @@ const FormTextContainer = styled.div`
 `;
 
 const CustomSubmit = styled(CustomInput)`
-  background: ${(props) => props.theme.colors.foreground};
-  color: ${(props) => props.theme.colors.darkText};
   border-radius: 10rem;
   padding: 0.5rem 2rem;
   margin-left: auto;
   width: fit-content;
   margin-right: 2rem;
   margin-top: 2rem;
-  &:hover {
-    cursor: pointer;
-    background: ${(props) => props.theme.colors.foregroundDarker};
-  }
 `;
 
 // TODO: SACAR TODOS LOS OBJETOS DE EMOTIONJS FUERA DEL EXPORT
@@ -109,16 +96,23 @@ export default function FormContainer() {
 
   console.log(watch("nombre"));
   return (
-    <CustomFormContainer id="contacto-container">
+    <CustomFormContainer className="bg-secondary" id="contacto-container">
       <FormHeader className="text-center pt-20">
         ¿DESEAS QUE NOS PONGAMOS <br /> EN CONTACTO CONTIGO?
       </FormHeader>
       <CustomContainer>
-        <form className="mt-10 flex flex-col" onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className="mt-10 flex flex-col w-full px-10 md:w-2/3 md:mx-auto"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div className="flex md:flex-row flex-col ">
             <CustomDiv className="flex flex-1 flex-col md:w-1/2 w-full md:mx-5 my-6 relative ">
-              <CustomLabel>Nombre</CustomLabel>
+              <CustomLabel className="text-foreground" for="form-name">
+                Nombre
+              </CustomLabel>
               <CustomInput
+                className="bg-transparent"
+                id="form-name"
                 {...register("nombre", {
                   required: {
                     value: true,
@@ -140,8 +134,10 @@ export default function FormContainer() {
             </CustomDiv>
 
             <CustomDiv className="flex flex-1 flex-col md:w-1/2 w-full md:mx-5 my-6">
-              <CustomLabel>Apellido</CustomLabel>
+              <CustomLabel for="form-apellido">Apellido</CustomLabel>
               <CustomInput
+                className="bg-transparent"
+                id="form-apellido"
                 {...register("apellido", {
                   required: {
                     value: true,
@@ -165,8 +161,10 @@ export default function FormContainer() {
 
           <div className="flex md:flex-row flex-col">
             <CustomDiv className="flex flex-col md:w-1/2 w-full md:mx-5 md:my-10 my-6">
-              <CustomLabel>Correo Electrónico</CustomLabel>
+              <CustomLabel for="form-correo">Correo Electrónico</CustomLabel>
               <CustomInput
+                className="bg-transparent"
+                id="form-correo"
                 {...register("correo", {
                   required: {
                     value: true,
@@ -184,8 +182,10 @@ export default function FormContainer() {
             </CustomDiv>
 
             <CustomDiv className="flex flex-col md:w-1/2 w-full md:mx-5 md:my-10 my-6">
-              <CustomLabel>Teléfono</CustomLabel>
+              <CustomLabel for="form-telefono">Teléfono</CustomLabel>
               <CustomInput
+                className="bg-transparent"
+                id="form-telefono"
                 {...register("telefono", {
                   required: {
                     value: true,
@@ -205,8 +205,9 @@ export default function FormContainer() {
           </div>
 
           <FormTextContainer className="flex flex-col md:mx-5 mt-6">
-            <CustomLabel>Mensaje</CustomLabel>
+            <CustomLabel for="form-mensaje">Mensaje</CustomLabel>
             <CustomTextArea
+              id="form-mensaje"
               {...register("mensaje", {
                 required: { value: true, message: "Este campo es requerido*" },
               })}
@@ -217,7 +218,7 @@ export default function FormContainer() {
           </FormTextContainer>
 
           <CustomSubmit
-            className="self-end"
+            className="self-end bg-foreground hover:bg-foregroundDarker text-darkText hover:cursor-pointer"
             onSubmit={onSubmit}
             type="submit"
             value={"ENVIAR"}

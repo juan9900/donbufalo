@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -15,14 +15,7 @@ import logo from "/public/img/ISO-LOGO.png";
 import styled from "@emotion/styled";
 import Image from "next/image";
 
-const CustomNavbarItem = styled(NavbarItem)`
-  a {
-    color: ${(props) =>
-      props.isActive
-        ? "#7ef07e" /* Set the color for active items */
-        : props.theme.colors.foreground}; /* Use the theme's foreground color */
-  }
-`;
+const CustomNavbarItem = styled(NavbarItem)``;
 
 // A scroller function that takes element id and smooth scrolls to it.
 const scroll2El = (elID, extraOffset = 60) => {
@@ -39,9 +32,23 @@ const BrandLogo = styled(Image)`
 `;
 
 export default function CustomNavbar() {
-  const theme = useTheme();
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const closeMenuOnOutsideClick = (e) => {
+      if (isMenuOpen && e.target.closest(".navbar-menu") === null) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    // Add event listeners when the component mounts
+    document.addEventListener("click", closeMenuOnOutsideClick);
+
+    // Clean up event listeners when the component unmounts
+    return () => {
+      document.removeEventListener("click", closeMenuOnOutsideClick);
+    };
+  }, [isMenuOpen]);
 
   const menuItems = [
     { title: "Inicio", goto: "header-container" },
@@ -64,7 +71,7 @@ export default function CustomNavbar() {
   };
   return (
     <Navbar
-      className="bg-navbarBackground"
+      className="bg-darkBackground"
       onMenuOpenChange={setIsMenuOpen}
       isMenuOpen={isMenuOpen}
       // position="sticky"
@@ -75,8 +82,8 @@ export default function CustomNavbar() {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
-        <NavbarBrand>
-          <BrandLogo src={logo} alt="Logo Don Bufalo" />
+        <NavbarBrand className="relative flex flex-row justify-start">
+          <BrandLogo width={60} height={60} src={logo} alt="Logo Don Bufalo" />
           <button
             className="font-bold"
             goto="header-container"

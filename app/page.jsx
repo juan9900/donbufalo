@@ -10,7 +10,6 @@ import FormSection from "@/sections/index/FormSection";
 export default function Home() {
   return (
     <>
-      {/* <button onClick={makeApiCall}>Make api call</button> */}
       <HeaderSection />
       <UsSection />
       <PlanSection />

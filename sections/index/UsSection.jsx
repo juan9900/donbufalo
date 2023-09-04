@@ -4,32 +4,33 @@ import styled from "@emotion/styled";
 export default function UsContainer() {
   const UsContainer = styled.div`
     padding: 3rem 0 10rem 8rem;
-    background: url("/img/FONDO-2.jpg");
+    background: url("/img/FONDO-2.webp");
     background-size: cover;
     background-position: 0 50%;
 
-    @media screen and (max-width: 420px) {
+    @media screen and (max-width: 768px) {
       padding: 3rem 1rem;
       margin-top: -1rem;
       background: url("/img/TEXTURA.jpg");
     }
   `;
 
-  const DarkHeaderSpan = styled.span`
-    color: ${(props) => props.theme.colors.secondary};
-  `;
+  const DarkHeaderSpan = styled.span``;
 
   return (
     <UsContainer id="us-container">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div></div>
         <div className="flex items-center flex-col">
-          <DarkHeader className="text-center">
+          <DarkHeader className="text-center text-primary">
             DESCUBRE QUIÉNES SOMOS Y CÓMO PUEDES INVERTIR
-            <DarkHeaderSpan> SABIAMENTE EN BÚFALOS</DarkHeaderSpan>
+            <DarkHeaderSpan className="text-secondary">
+              {" "}
+              SABIAMENTE EN BÚFALOS
+            </DarkHeaderSpan>
           </DarkHeader>
 
-          <div className="w-4/5 text-left ">
+          <div className="w-4/5 text-left text-primary">
             <DarkText>
               Somos una agropecuaria que se especializa en la cría de búfalos de
               alta calidad, con búfalos importados de Brasil y Colombia con una

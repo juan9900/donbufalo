@@ -9,7 +9,6 @@ const CustomContainer = styled(TexturedContainer)`
   position: relative;
 
   h2 {
-    color: ${(props) => props.theme.colors.secondary};
     font-size: 6rem;
     font-family: "Anzeigen", sans-serif;
     font-weight: 800;
@@ -28,20 +27,18 @@ const CustomContainer = styled(TexturedContainer)`
     transform: translateX(-50%);
     text-align: center;
     color: transparent;
-    -webkit-text-stroke: 1px
-      ${(props) => props.theme.colors.transparentSecondary};
-    text-stroke: 1px ${(props) => props.theme.colors.transparentSecondary};
+    -webkit-text-stroke: 1px #592c334a;
+    text-stroke: 1px #592c334a;
     z-index: 0;
   }
 
   .subtitle {
-    color: ${(props) => props.theme.colors.primary};
     font-size: 1.3rem;
     margin-top: -2rem;
     font-family: "Poppins-regular", sans-serif;
   }
 
-  @media screen and (max-width: 420px) {
+  @media screen and (max-width: 768px) {
     h2 {
       font-size: 2.5rem;
       word-wrap: break-word;
@@ -63,13 +60,13 @@ export default function CatalogContainer() {
   return (
     <CustomContainer id="catalogo-container">
       <div className="relative title-container">
-        <h2 className="mx-auto  text-center md:text-left">
+        <h2 className="text-secondary mx-auto  text-center md:text-left">
           {" "}
           CATÁLOGO DE BÚFALOS
         </h2>
       </div>
 
-      <p className="subtitle mx-auto w-fit text-center md:text-left px-3 md:px-0">
+      <p className="text-primary subtitle mx-auto w-fit text-center md:text-left px-3 md:px-0">
         REVISA NUESTRO CATÁLOGO DE BÚFALOS MACHO
       </p>
       <CatalogCarousel />
