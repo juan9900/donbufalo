@@ -4,14 +4,6 @@ import { DarkHeader } from "@/styles";
 import styled from "@emotion/styled";
 import { useForm } from "react-hook-form";
 
-const initialFormState = {
-  nombre: "",
-  apellido: "",
-  telefono: "",
-  correo: "",
-  mensaje: "",
-};
-
 const CustomFormContainer = styled.div`
   background: ${(props) => props.theme.colors.secondary};
 
@@ -22,16 +14,14 @@ const FormHeader = styled(DarkHeader)`
   color: #fff;
 `;
 const CustomContainer = styled.div`
-  max-width: 60%;
+  max-width: 85%;
   margin: 0 auto;
 `;
 
 const CustomLabel = styled.label`
   color: ${(props) => props.theme.colors.foreground};
-  opacity: ${(props) => (props.nombre === "" ? 1 : 0.3)};
-  font-family: "Poppins-regular", sans-serif;
-  font-size: ${(props) => (props.nombre === "" ? "1.2em" : "1em")};
-  transition: all 0.3s;
+  font-family: "Anzeigen", sans-serif;
+  font-size: 1.5rem;
   flex: 1.5;
 `;
 
@@ -39,10 +29,9 @@ const CustomInput = styled.input`
   background: transparent;
   border: 1px solid transparent;
   border-radius: 3px;
-  flex: 1;
   padding: 0.15rem 0.3rem;
   outline: none;
-  transition: all 0.3s;
+  transition: all 0.1s;
   position: relative;
 
   &:focus {
@@ -54,7 +43,6 @@ const CustomTextArea = styled.textarea`
   background: transparent;
   border: 2px solid #ffffffa3;
   border-radius: 3px;
-  overflow: scroll;
   resize: none;
   height: 150px;
   flex: 5;
@@ -88,6 +76,7 @@ const ErrorMessage = styled.span`
 const FormTextContainer = styled.div`
   height: 150px;
   position: relative;
+  overflow: hidden;
 `;
 
 const CustomSubmit = styled(CustomInput)`
@@ -108,16 +97,6 @@ const CustomSubmit = styled(CustomInput)`
 // TODO: SACAR TODOS LOS OBJETOS DE EMOTIONJS FUERA DEL EXPORT
 
 export default function FormContainer() {
-  // const {
-  //   nombre,
-  //   apellido,
-  //   telefono,
-  //   correo,
-  //   mensaje,
-  //   onInputChange,
-  //   onResetForm,
-  // } = useForm(initialFormState);
-
   const {
     register,
     handleSubmit,
@@ -136,8 +115,8 @@ export default function FormContainer() {
       </FormHeader>
       <CustomContainer>
         <form className="mt-10 flex flex-col" onSubmit={handleSubmit(onSubmit)}>
-          <div className="flex ">
-            <CustomDiv className="flex flex-1 flex-col w-1/2 mx-5 my-6 relative ">
+          <div className="flex md:flex-row flex-col ">
+            <CustomDiv className="flex flex-1 flex-col md:w-1/2 w-full md:mx-5 my-6 relative ">
               <CustomLabel>Nombre</CustomLabel>
               <CustomInput
                 {...register("nombre", {
@@ -160,7 +139,7 @@ export default function FormContainer() {
               )}
             </CustomDiv>
 
-            <CustomDiv className="flex flex-1 flex-col w-1/2 mx-5 my-6">
+            <CustomDiv className="flex flex-1 flex-col md:w-1/2 w-full md:mx-5 my-6">
               <CustomLabel>Apellido</CustomLabel>
               <CustomInput
                 {...register("apellido", {
@@ -184,8 +163,8 @@ export default function FormContainer() {
             </CustomDiv>
           </div>
 
-          <div className="flex">
-            <CustomDiv className="flex flex-col w-1/2 mx-5 my-10">
+          <div className="flex md:flex-row flex-col">
+            <CustomDiv className="flex flex-col md:w-1/2 w-full md:mx-5 md:my-10 my-6">
               <CustomLabel>Correo Electrónico</CustomLabel>
               <CustomInput
                 {...register("correo", {
@@ -204,7 +183,7 @@ export default function FormContainer() {
               )}
             </CustomDiv>
 
-            <CustomDiv className="flex flex-col w-1/2 mx-5 my-10">
+            <CustomDiv className="flex flex-col md:w-1/2 w-full md:mx-5 md:my-10 my-6">
               <CustomLabel>Teléfono</CustomLabel>
               <CustomInput
                 {...register("telefono", {
@@ -225,7 +204,7 @@ export default function FormContainer() {
             </CustomDiv>
           </div>
 
-          <FormTextContainer className="flex flex-col mx-5 mt-6">
+          <FormTextContainer className="flex flex-col md:mx-5 mt-6">
             <CustomLabel>Mensaje</CustomLabel>
             <CustomTextArea
               {...register("mensaje", {

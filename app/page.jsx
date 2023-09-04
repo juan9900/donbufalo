@@ -1,23 +1,23 @@
 "use client";
-import HeaderContainer from "@/components/HeaderContainer";
-import UsContainer from "@/components/UsContainer";
-import PlanContainer from "@/components/PlanContainer";
-import CatalogContainer from "@/components/CatalogContainer";
-import BookContainer from "@/components/BookContainer";
-import TestimonialsContainer from "@/components/TestimonialsContainer";
-import FormContainer from "@/components/FormContainer";
+import HeaderSection from "@/sections/index/HeaderSection";
+import UsSection from "@/sections/index/UsSection";
+import PlanSection from "@/sections/index/PlanSection";
+import CatalogSection from "@/sections/index/CatalogSection";
+import BookSection from "@/sections/index/BookSection";
+import TestimonialsSection from "@/sections/index/TestimonialsSection";
+import FormSection from "@/sections/index/FormSection";
 
 export default function Home() {
   return (
     <>
       {/* <button onClick={makeApiCall}>Make api call</button> */}
-      <HeaderContainer />
-      <UsContainer />
-      <PlanContainer />
-      <CatalogContainer />
-      <BookContainer />
-      <TestimonialsContainer />
-      <FormContainer />
+      <HeaderSection />
+      <UsSection />
+      <PlanSection />
+      <CatalogSection />
+      <BookSection />
+      <TestimonialsSection />
+      <FormSection />
     </>
   );
 }

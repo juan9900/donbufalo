@@ -32,14 +32,6 @@ const scroll2El = (elID, extraOffset = 60) => {
   });
 };
 
-const onBtnClick = (e) => {
-  e.preventDefault();
-  const goto = e.target.getAttribute("goto");
-  setTimeout(() => {
-    scroll2El(goto, goto.includes("catalogo") ? 0 : 60);
-  }, 100);
-};
-
 const BrandLogo = styled(Image)`
   max-width: 40px;
   math-style: 40px;
@@ -52,16 +44,29 @@ export default function CustomNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    "Inicio",
-    "Nosotros",
-    "Plan Sanitario",
-    "Catálogo",
-    "Contacto",
+    { title: "Inicio", goto: "header-container" },
+    { title: "Nosotros", goto: "us-container" },
+    { title: "Plan Sanitario", goto: "plan-container" },
+    { title: "Catálogo", goto: "catalogo-container" },
+    { title: "Libro", goto: "book-container" },
+    { title: "Testimonios", goto: "testimonials-container" },
+
+    { title: "Contacto", goto: "contacto-container" },
   ];
+
+  const onBtnClick = (e) => {
+    e.preventDefault();
+    const goto = e.target.getAttribute("goto");
+    setTimeout(() => {
+      scroll2El(goto, goto.includes("catalogo") ? 0 : 60);
+    }, 100);
+    setIsMenuOpen(false);
+  };
   return (
     <Navbar
       className="bg-navbarBackground"
       onMenuOpenChange={setIsMenuOpen}
+      isMenuOpen={isMenuOpen}
       // position="sticky"
       shouldHideOnScroll
     >
@@ -72,7 +77,13 @@ export default function CustomNavbar() {
         />
         <NavbarBrand>
           <BrandLogo src={logo} alt="Logo Don Bufalo" />
-          <p className="font-bold text-inherit">DONBUFALO</p>
+          <button
+            className="font-bold"
+            goto="header-container"
+            onClick={onBtnClick}
+          >
+            DON BUFALO
+          </button>
         </NavbarBrand>
       </NavbarContent>
 
@@ -81,57 +92,34 @@ export default function CustomNavbar() {
           {/* <Link color="foreground" smooth spy to="#">
             Inicio
           </Link> */}
-          <button goto="header-container" onClick={onBtnClick}>
-            Inicio
-          </button>
         </CustomNavbarItem>
 
         <CustomNavbarItem>
-          {/* <Link color="foreground" smooth spy to="#us-container">
-
-            Nosotros
-          </Link> */}
           <button goto="us-container" onClick={onBtnClick}>
             Nosotros
           </button>
         </CustomNavbarItem>
         <CustomNavbarItem>
-          {/* <Link href="#plan-container" smooth spy to="page">
-            Plan Sanitario
-          </Link> */}
           <button goto="plan-container" onClick={onBtnClick}>
             Plan Sanitario
           </button>
         </CustomNavbarItem>
         <CustomNavbarItem>
-          {/* <Link color="foreground" smooth spy to="#catalogo-container">
-            Catálogo
-          </Link> */}
           <button goto="catalogo-container" onClick={onBtnClick}>
             Catálogo
           </button>
         </CustomNavbarItem>
         <CustomNavbarItem>
-          {/* <Link color="foreground" smooth spy to="#catalogo-container">
-            Catálogo
-          </Link> */}
           <button goto="book-container" onClick={onBtnClick}>
             Libro
           </button>
         </CustomNavbarItem>
         <CustomNavbarItem>
-          {/* <Link color="foreground" smooth spy to="#catalogo-container">
-            Catálogo
-          </Link> */}
           <button goto="testimonials-container" onClick={onBtnClick}>
             Testimonios
           </button>
         </CustomNavbarItem>
         <CustomNavbarItem>
-          {/* <Link color="foreground" smooth spy to="#contacto-container">
-
-            Contacto
-          </Link> */}
           <button goto="contacto-container" onClick={onBtnClick}>
             Contacto
           </button>
@@ -143,9 +131,16 @@ export default function CustomNavbar() {
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link color={"foreground"} className="w-full" href="#" size="lg">
-              {item}
-            </Link>
+            <button
+              goto={item.goto}
+              color={"foreground"}
+              className="w-full"
+              href="#"
+              size="lg"
+              onClick={onBtnClick}
+            >
+              {item.title}
+            </button>
           </NavbarMenuItem>
         ))}
       </NavbarMenu>

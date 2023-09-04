@@ -6,6 +6,10 @@ export const DarkHeader = styled.h2`
   font-weight: 800;
   line-height: 3.9rem;
   font-family: "Anzeigen", sans-serif;
+  @media screen and (max-width: 420px) {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
 `;
 
 export const DarkText = styled.p`

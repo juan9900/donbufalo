@@ -7,6 +7,12 @@ export default function UsContainer() {
     background: url("/img/FONDO-2.jpg");
     background-size: cover;
     background-position: 0 50%;
+
+    @media screen and (max-width: 420px) {
+      padding: 3rem 1rem;
+      margin-top: -1rem;
+      background: url("/img/TEXTURA.jpg");
+    }
   `;
 
   const DarkHeaderSpan = styled.span`
@@ -19,11 +25,11 @@ export default function UsContainer() {
         <div></div>
         <div className="flex items-center flex-col">
           <DarkHeader className="text-center">
-            DESCUBRE QUIÉNES SOMOS <br></br>Y CÓMO PUEDES INVERTIR <br></br>
+            DESCUBRE QUIÉNES SOMOS Y CÓMO PUEDES INVERTIR
             <DarkHeaderSpan> SABIAMENTE EN BÚFALOS</DarkHeaderSpan>
           </DarkHeader>
 
-          <div className="w-4/5 text-left">
+          <div className="w-4/5 text-left ">
             <DarkText>
               Somos una agropecuaria que se especializa en la cría de búfalos de
               alta calidad, con búfalos importados de Brasil y Colombia con una
@@ -42,7 +48,9 @@ export default function UsContainer() {
               Don Búfalo te ofrece reproductores puros con pedigree y venta de
               animales de alta calidad.
             </DarkText>
-            <DarkText>¡Mejora tu ganaería con nosotros!</DarkText>
+            <DarkText className="text-center font-bold md:text-left ">
+              ¡Mejora tu ganadería con nosotros!
+            </DarkText>
           </div>
         </div>
       </div>

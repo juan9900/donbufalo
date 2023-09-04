@@ -8,11 +8,10 @@ export async function GET(req) {
     const res = await fetch(url, {
       headers: {
         Authorization: process.env.API_KEY,
-        // "Cache-Control": "no-cache",
+        "Cache-Control": "no-cache",
       },
     });
     const data = await res.json();
-    console.log(data);
 
     return NextResponse.json({ data });
   } catch (error) {
