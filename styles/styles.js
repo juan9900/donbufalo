@@ -31,6 +31,9 @@ export const DarkText = styled.p`
   font-size: 1.2em;
   margin-top: 1.5rem;
   font-family: "Poppins-regular", sans-serif;
+  @media screen and (min-width: 1920px) {
+    font-size: 1.6em;
+  }
 `;
 
 export const TexturedContainer = styled.div`

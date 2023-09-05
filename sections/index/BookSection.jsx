@@ -51,7 +51,8 @@ export default function BookContainer() {
       <CustomContainer className="flex md:pt-20  flex-col items-start justify-center mx-auto   relative md:flex-row md:justify-between">
         <div className="w-full md:w-3/6 flex flex-col justify-center  pt-10  ">
           <DarkHeaderBookContainer className="text-secondary md:text-left text-center">
-            LIBRO &quot;EL BÚFALO&quot;
+            LIBRO <br className="md:hidden" />{" "}
+            <span className="pt-5 md:mt-0 block">&quot;EL BÚFALO&quot;</span>
           </DarkHeaderBookContainer>
 
           <BookImage

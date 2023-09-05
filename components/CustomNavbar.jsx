@@ -8,14 +8,24 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-  Link,
 } from "@nextui-org/react";
-import { useTheme } from "@emotion/react";
 import logo from "/public/img/ISO-LOGO.png";
 import styled from "@emotion/styled";
 import Image from "next/image";
 
-const CustomNavbarItem = styled(NavbarItem)``;
+const CustomNav = styled(Navbar)`
+  @media screen and (min-width: 1024px) {
+    li {
+      margin: 0 0.5rem;
+    }
+  }
+
+  @media screen and (min-width: 2000px) {
+    button {
+      font-size: 1.5em;
+    }
+  }
+`;
 
 // A scroller function that takes element id and smooth scrolls to it.
 const scroll2El = (elID, extraOffset = 60) => {
@@ -70,8 +80,8 @@ export default function CustomNavbar() {
     setIsMenuOpen(false);
   };
   return (
-    <Navbar
-      className="bg-darkBackground"
+    <CustomNav
+      className="bg-darkBackground 3xl:py-3"
       onMenuOpenChange={setIsMenuOpen}
       isMenuOpen={isMenuOpen}
       // position="sticky"
@@ -95,45 +105,45 @@ export default function CustomNavbar() {
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <CustomNavbarItem isActive>
+        <NavbarItem isActive>
           {/* <Link color="foreground" smooth spy to="#">
             Inicio
           </Link> */}
-        </CustomNavbarItem>
+        </NavbarItem>
 
-        <CustomNavbarItem>
+        <NavbarItem>
           <button goto="us-container" onClick={onBtnClick}>
             Nosotros
           </button>
-        </CustomNavbarItem>
-        <CustomNavbarItem>
+        </NavbarItem>
+        <NavbarItem>
           <button goto="plan-container" onClick={onBtnClick}>
             Plan Sanitario
           </button>
-        </CustomNavbarItem>
-        <CustomNavbarItem>
+        </NavbarItem>
+        <NavbarItem>
           <button goto="catalogo-container" onClick={onBtnClick}>
             Catálogo
           </button>
-        </CustomNavbarItem>
-        <CustomNavbarItem>
+        </NavbarItem>
+        <NavbarItem>
           <button goto="book-container" onClick={onBtnClick}>
             Libro
           </button>
-        </CustomNavbarItem>
-        <CustomNavbarItem>
+        </NavbarItem>
+        <NavbarItem>
           <button goto="testimonials-container" onClick={onBtnClick}>
             Testimonios
           </button>
-        </CustomNavbarItem>
-        <CustomNavbarItem>
+        </NavbarItem>
+        <NavbarItem>
           <button goto="contacto-container" onClick={onBtnClick}>
             Contacto
           </button>
-        </CustomNavbarItem>
+        </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <CustomNavbarItem className="hidden lg:flex"></CustomNavbarItem>
+        <NavbarItem className="hidden lg:flex"></NavbarItem>
       </NavbarContent>
       <NavbarMenu>
         {menuItems.map((item, index) => (
@@ -151,6 +161,6 @@ export default function CustomNavbar() {
           </NavbarMenuItem>
         ))}
       </NavbarMenu>
-    </Navbar>
+    </CustomNav>
   );
 }

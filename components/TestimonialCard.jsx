@@ -21,6 +21,7 @@ const TestimonialCardContainer = styled.div`
   }
 
   @media screen and (max-width: 768px) {
+    margin: 0 0 7rem 0;
     &:after {
       display: none;
       opacity: 0;
@@ -59,6 +60,10 @@ const CustomCard = styled.div`
   @media screen and (max-width: 1281px) {
     margin: 0 1rem;
   }
+
+  @media screen and (min-width: 1920px) {
+    padding-bottom: 3rem;
+  }
 `;
 
 const TestimonialText = styled.p`
@@ -82,14 +87,19 @@ const FloatingImg = styled(Image)`
     width: 45%;
     bottom: 65% !important;
   }
+
+  @media screen and (min-width: 1920px) {
+    width: 35%;
+    bottom: 70% !important;
+  }
 `;
 
 export default function TestimonialCard({ text }) {
   return (
     <TestimonialCardContainer>
-      <CustomCard className="bg-secondary flex justify-center">
+      <CustomCard className="bg-secondary flex justify-center ">
         <FloatingImg src={testimonialImg} alt="testimonial" />
-        <TestimonialText className="text-center text-foreground">
+        <TestimonialText className="3xl:text-xl text-center text-foreground">
           {text}
         </TestimonialText>
       </CustomCard>

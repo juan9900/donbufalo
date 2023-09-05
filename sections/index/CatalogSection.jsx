@@ -61,7 +61,6 @@ export default function CatalogContainer() {
     <CustomContainer id="catalogo-container">
       <div className="relative title-container">
         <h2 className="text-secondary mx-auto  text-center md:text-left">
-          {" "}
           CATÁLOGO DE BÚFALOS
         </h2>
       </div>

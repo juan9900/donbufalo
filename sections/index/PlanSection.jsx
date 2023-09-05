@@ -2,7 +2,6 @@ import { DarkHeader, TexturedContainer } from "@/styles";
 import styled from "@emotion/styled";
 import Image from "next/image";
 import planImg from "/public/img/IMAGEN-3.webp";
-import { useState } from "react";
 
 const BorderedText = styled.p`
   border-radius: 10rem;
@@ -24,7 +23,6 @@ const BorderedTextBrown = styled(BorderedText)`
 `;
 
 const DarkText = styled.p`
-  font-size: 1.2em;
   font-family: "Poppins-regular", sans-serif;
 `;
 const CustomContainer = styled.div`
@@ -81,7 +79,7 @@ export default function PlanContainer() {
       >
         ¡DESCARGALO AQUÍ!
       </PlanDownloadButton>
-      <DarkText className=" text-primary w-full px-5 my-10 md:px-0 md:w-3/6 text-center mx-auto">
+      <DarkText className="3xl:text-2xl text-base text-primary w-full px-5 my-10 md:px-0 md:w-3/6 text-center mx-auto">
         Te ayudará a mantener la buena salud de tus búfalos. Sigue las
         recomendaciones específicas para asegurarte de que tus animales reciban
         los cuidados adecuados y prevenir enfermedades, asegurando la calidad de
@@ -98,7 +96,7 @@ export default function PlanContainer() {
           alt="Don Bufalo Plan Sanitario"
         />
       </ImageContainer>
-      <BorderedTextBrown className="text-darkText border-3 border-secondary w-90 md:w-4/6 text-center mx-auto md:mt-0 mt-10 py-3">
+      <BorderedTextBrown className="text-darkText border-3 border-secondary w-90 3xl:w-fit 3xl:px-10 md:w-4/6 text-center mx-auto md:mt-0 mt-10 py-3">
         <span className="text-secondary">¡DESCÁRGALO</span> HOY MISMO Y COMIENZA
         A CUIDAR DE TUS ANIMALES DE LA MEJOR MANERA POSIBLE!
       </BorderedTextBrown>
