@@ -1,15 +1,12 @@
 "use client";
-
-import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
-import { getBufalo } from "@/helpers/getBufalo";
 import styled from "@emotion/styled";
 import Image from "next/image";
-import { Spinner, Skeleton, Button } from "@nextui-org/react";
+import { Spinner, Skeleton } from "@nextui-org/react";
 import BufaloTabs from "@/components/BufaloTabs";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import wsLogo from "/public/icons/WS.svg";
+import { useBufalo } from "@/hooks/useBufalo";
 const CustomContainer = styled.div`
   background: url("/img/TEXTURA.jpg");
 `;
@@ -68,86 +65,8 @@ const WhatsappButton = styled.a`
 
 const BackButton = styled(Link)``;
 
-const calculateYears = (date) => {
-  console.log({ date });
-  // const splitedDate = date.split("/");
-  // const formatedDate = `${splitedDate[2]}-${splitedDate[1]}-${splitedDate[0]}`;
-  // Parse the date string into a JavaScript Date object
-  // console.log({ formatedDate });
-  const parsedDate = new Date(date);
-  console.log({ parsedDate });
-  // Get the current date
-  const currentDate = new Date();
-
-  // Calculate the difference in years
-  const yearsPassed = currentDate.getFullYear() - parsedDate.getFullYear();
-
-  return yearsPassed;
-};
-
 export default function BufaloScreen() {
-  // TODO: Add a skeleton on every item while the page is loading
-  const [bufaloData, setBufaloData] = useState({
-    arete: "",
-    chip_completo: "",
-    clasificacion: "",
-    nacimiento: "",
-    foto_animal: "",
-    registro_padre_venezolano: "",
-    registro_padre_colombiano: "",
-    registro_madre_venezolana: "",
-    registro_madre_brasilena: "",
-  });
-  const [bufaloTabs, setBufaloTabs] = useState([
-    {
-      title: "",
-      content: "",
-    },
-  ]);
-  const [dataLoaded, setDataLoaded] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const [bufaloNotFound, setBufaloNotFound] = useState(false);
-  const { id } = useParams();
-
-  useEffect(() => {
-    const fecthBufalo = async () => {
-      console.log(id);
-      const response = await getBufalo(id);
-      if (!response.ok) {
-        console.log("error");
-        setBufaloData(false);
-        setBufaloNotFound(true);
-        return;
-      }
-      const age = calculateYears(response.data.nacimiento);
-      console.log({ age });
-      const bufaloDataFull = { ...response.data, age };
-      setBufaloData(bufaloDataFull);
-
-      setBufaloTabs([
-        {
-          title: "Padre Ve.",
-          content: bufaloDataFull.registro_padre_venezolano,
-        },
-        {
-          title: "Padre Co.",
-          content: bufaloDataFull.registro_padre_colombiano,
-        },
-        {
-          title: "Madre Ve.",
-          content: bufaloDataFull.registro_madre_venezolana,
-        },
-        {
-          title: "Madre Br.",
-          content: bufaloDataFull.registro_madre_brasilena,
-        },
-      ]);
-      setDataLoaded(true);
-    };
-
-    fecthBufalo();
-  }, [id]);
-
+  const { bufaloData, bufaloTabs, dataLoaded, bufaloNotFound } = useBufalo();
   if (bufaloData === false) {
     return (
       <CustomContainer className="overflow-hidden min-h-screen flex flex-col justify-center items-center px-10 text-center">
@@ -167,19 +86,6 @@ export default function BufaloScreen() {
     );
   }
 
-  // if (bufaloData === null) {
-  //   // return a nextui spinner
-  //   return (
-  //     <div className="w-full h-screen flex justify-center items-center">
-  //       <CustomSpinner
-  //         size="large"
-  //         label="Cargando bufalo..."
-  //         color="warning"
-  //       />
-  //     </div>
-  //   );
-  // }
-
   return (
     <CustomContainer className="3xl:pt-40 pt-20 min-h-screen h-full">
       <Link
@@ -195,15 +101,16 @@ export default function BufaloScreen() {
             className="rounded-lg w-full lg:w-1/2  md:mr-10 w-5/6 mx-auto mb-2 md:mb-0"
           >
             <AnimalImageContainer className="rounded w-full">
-              <CustomImage
-                onLoad={() => setImageLoaded(true)}
-                className="h-full"
-                src={bufaloData.foto_animal}
-                fill
-                objectFit="contain"
-                alt={`Bufalo ${bufaloData.arete}`}
-                sizes="(max-width: 768px) 80vw, 33vw"
-              ></CustomImage>
+              {bufaloData?.foto_animal && (
+                <CustomImage
+                  className="h-full"
+                  src={bufaloData.foto_animal || ""}
+                  fill
+                  objectFit="contain"
+                  alt={`Bufalo ${bufaloData.arete}`}
+                  sizes="(max-width: 768px) 80vw, 33vw"
+                ></CustomImage>
+              )}
             </AnimalImageContainer>
           </Skeleton>
         </div>
