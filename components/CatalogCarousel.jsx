@@ -147,7 +147,7 @@ const CatalogCarousel = () => {
                     code={bufalo.arete}
                     birthday={bufalo.nacimiento}
                     imageUrl={bufalo.foto_animal}
-                    category={bufalo.categoria}
+                    category={bufalo.clasificacion}
                   />
                 </CustomCardWrapper>
               );
