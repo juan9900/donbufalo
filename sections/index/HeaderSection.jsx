@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import Image from "next/image";
 import siteLogo from "/public/img/ISO-LOGO-CON-EFECTO.webp";
+import arrowDown from "/public/icons/FLECHA.gif";
+import ArrowDown from "@/components/ArrowDown";
 
 export default function HeaderContainer() {
   const CustomHeader = styled.div`
@@ -44,7 +46,7 @@ export default function HeaderContainer() {
   return (
     <CustomHeader
       id="header-container"
-      className="grid grid-cols-1 2xl:grid-cols-2 gap-4 pt-10 pb-0  md:pb-20"
+      className="grid grid-cols-1 2xl:grid-cols-2 gap-4 pt-20 pb-0  md:pb-20"
     >
       <div className="flex items-center flex-col pt-10 md:pt-0 relative  3xl:pt-40">
         <div className="flex-1 relative  w-full">
@@ -65,6 +67,9 @@ export default function HeaderContainer() {
           <BorderedText className="text-center px-5 py-2 mt-5 border-foreground border">
             Más de 12 años de experiencia <br /> en el sector agropecuario
           </BorderedText>
+          <div className="flex justify-center items-center overflow-auto mt-5  w-full">
+            <ArrowDown />
+          </div>
         </div>
       </div>
     </CustomHeader>

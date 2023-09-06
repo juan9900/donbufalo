@@ -31,7 +31,7 @@ export default function UsContainer() {
               </DarkHeaderSpan>
             </DarkHeader>
 
-            <div className="w-4/5 md:text-left text-center text-primary 2xl:pl-20 mx-auto">
+            <div className="w-4/5 md:text-left text-center text-primary 2xl:pl-7 mx-auto">
               <DarkText>
                 Somos una agropecuaria que se especializa en la cría de búfalos
                 de alta calidad, con búfalos importados de Brasil y Colombia con

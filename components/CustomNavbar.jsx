@@ -8,12 +8,18 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
+  Link,
 } from "@nextui-org/react";
 import logo from "/public/img/ISO-LOGO.png";
 import styled from "@emotion/styled";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 
 const CustomNav = styled(Navbar)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   @media screen and (min-width: 1024px) {
     li {
       margin: 0 0.5rem;
@@ -21,7 +27,7 @@ const CustomNav = styled(Navbar)`
   }
 
   @media screen and (min-width: 2000px) {
-    button {
+    Link {
       font-size: 1.5em;
     }
   }
@@ -44,21 +50,28 @@ const BrandLogo = styled(Image)`
 export default function CustomNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const closeMenuOnOutsideClick = (e) => {
-      if (isMenuOpen && e.target.closest(".navbar-menu") === null) {
-        setIsMenuOpen(false);
-      }
-    };
+  // Get the current url path using nextjs useRouter hook
+  const pathname = usePathname();
 
-    // Add event listeners when the component mounts
-    document.addEventListener("click", closeMenuOnOutsideClick);
+  const router = useRouter();
 
-    // Clean up event listeners when the component unmounts
-    return () => {
-      document.removeEventListener("click", closeMenuOnOutsideClick);
-    };
-  }, [isMenuOpen]);
+  console.log(pathname);
+
+  // useEffect(() => {
+  //   const closeMenuOnOutsideClick = (e) => {
+  //     if (isMenuOpen && e.target.closest(".navbar-menu") === null) {
+  //       setIsMenuOpen(false);
+  //     }
+  //   };
+
+  //   // Add event listeners when the component mounts
+  //   document.addEventListener("click", closeMenuOnOutsideClick);
+
+  //   // Clean up event listeners when the component unmounts
+  //   return () => {
+  //     document.removeEventListener("click", closeMenuOnOutsideClick);
+  //   };
+  // }, [isMenuOpen]);
 
   const menuItems = [
     { title: "Inicio", goto: "header-container" },
@@ -71,13 +84,26 @@ export default function CustomNavbar() {
     { title: "Contacto", goto: "contacto-container" },
   ];
 
+  const scrollToSection = (sectionId, extraOffset = 60) => {
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+      window.scrollTo({
+        top: targetSection.offsetTop - extraOffset,
+        behavior: "smooth",
+      });
+    }
+  };
+
   const onBtnClick = (e) => {
     e.preventDefault();
     const goto = e.target.getAttribute("goto");
+
+    if (pathname !== "/") return router.push(`/#${goto}`);
+
+    // Check if you're on the index page or a different page
     setTimeout(() => {
-      scroll2El(goto, goto.includes("catalogo") ? 0 : 60);
+      scrollToSection(goto, goto.includes("catalogo") ? 0 : 60);
     }, 100);
-    setIsMenuOpen(false);
   };
   return (
     <CustomNav
@@ -94,73 +120,109 @@ export default function CustomNavbar() {
         />
         <NavbarBrand className="relative flex flex-row justify-start">
           <BrandLogo width={60} height={60} src={logo} alt="Logo Don Bufalo" />
-          <button
-            className="font-bold"
+          <Link
+            href={pathname !== "/" ? "/" : "#header-container"}
+            className="font-bold text-foreground cursor-pointer"
             goto="header-container"
             onClick={onBtnClick}
           >
             DON BUFALO
-          </button>
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem isActive>
-          {/* <Link color="foreground" smooth spy to="#">
+      {pathname === "/" ? (
+        <>
+          {" "}
+          <NavbarContent className="hidden sm:flex gap-4" justify="center">
+            <NavbarItem isActive>
+              {/* <Link  color="foreground" smooth spy to="#">
             Inicio
           </Link> */}
-        </NavbarItem>
+            </NavbarItem>
 
-        <NavbarItem>
-          <button goto="us-container" onClick={onBtnClick}>
-            Nosotros
-          </button>
-        </NavbarItem>
-        <NavbarItem>
-          <button goto="plan-container" onClick={onBtnClick}>
-            Plan Sanitario
-          </button>
-        </NavbarItem>
-        <NavbarItem>
-          <button goto="catalogo-container" onClick={onBtnClick}>
-            Catálogo
-          </button>
-        </NavbarItem>
-        <NavbarItem>
-          <button goto="book-container" onClick={onBtnClick}>
-            Libro
-          </button>
-        </NavbarItem>
-        <NavbarItem>
-          <button goto="testimonials-container" onClick={onBtnClick}>
-            Testimonios
-          </button>
-        </NavbarItem>
-        <NavbarItem>
-          <button goto="contacto-container" onClick={onBtnClick}>
-            Contacto
-          </button>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex"></NavbarItem>
-      </NavbarContent>
-      <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <button
-              goto={item.goto}
-              color={"foreground"}
-              className="w-full"
-              href="#"
-              size="lg"
-              onClick={onBtnClick}
-            >
-              {item.title}
-            </button>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
+            <NavbarItem>
+              <Link
+                href={pathname !== "/" ? "/" : "#us-container"}
+                className="text-foreground cursor-pointer"
+                goto="us-container"
+                onClick={onBtnClick}
+              >
+                Nosotros
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link
+                href={pathname !== "/" ? "/" : "#plan-container"}
+                className="text-foreground cursor-pointer"
+                goto="plan-container"
+                onClick={onBtnClick}
+              >
+                Plan Sanitario
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link
+                href={pathname !== "/" ? "/" : "#catalogo-container"}
+                className="text-foreground cursor-pointer"
+                goto="catalogo-container"
+                onClick={onBtnClick}
+              >
+                Catálogo
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link
+                href={pathname !== "/" ? "/" : "#book-container"}
+                className="text-foreground cursor-pointer"
+                goto="book-container"
+                onClick={onBtnClick}
+              >
+                Libro
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link
+                href={pathname !== "/" ? "/" : "#testimonials-container"}
+                className="text-foreground cursor-pointer"
+                goto="testimonials-container"
+                onClick={onBtnClick}
+              >
+                Testimonios
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link
+                href={pathname !== "/" ? "/" : "#contacto-container"}
+                className="text-foreground cursor-pointer"
+                goto="contacto-container"
+                onClick={onBtnClick}
+              >
+                Contacto
+              </Link>
+            </NavbarItem>
+          </NavbarContent>
+          <NavbarContent justify="end">
+            <NavbarItem className="hidden lg:flex"></NavbarItem>
+          </NavbarContent>
+          <NavbarMenu>
+            {menuItems.map((item, index) => (
+              <NavbarMenuItem key={`${item}-${index}`}>
+                <Link
+                  goto={item.goto}
+                  color={"foreground"}
+                  className="w-full"
+                  href="#"
+                  size="lg"
+                  // onClick={onBtnClick}
+                >
+                  {item.title}
+                </Link>
+              </NavbarMenuItem>
+            ))}
+          </NavbarMenu>
+        </>
+      ) : null}
     </CustomNav>
   );
 }

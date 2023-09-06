@@ -10,6 +10,7 @@ import nextArrow from "/public/img/FLECHA.png";
 import { Spinner } from "@nextui-org/react";
 import CatalogItem from "./CatalogItem";
 import { DarkText } from "@/styles";
+import { useBufaloStore } from "@/hooks/useBufaloStore";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;

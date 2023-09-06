@@ -7,6 +7,7 @@ import CustomNavbar from "@/components/CustomNavbar";
 // import { ThemeProvider } from "@emotion/react";
 import "tailwindcss/tailwind.css";
 import Footer from "@/components/Footer";
+import { useRouter } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,12 +21,11 @@ export default function RootLayout({ children }) {
   return (
     // <Provider store={store}>
     // <ThemeProvider theme={theme}>
-    <html lang="en">
-      <body className={inter.className}>
+    <html className="min-h-screen" lang="en">
+      <body className={`${inter.className} `}>
         <CustomNavbar />
 
-        <main>{children}</main>
-        <Footer />
+        <main className="">{children}</main>
       </body>
     </html>
     // </ThemeProvider>

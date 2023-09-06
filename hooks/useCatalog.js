@@ -11,7 +11,7 @@ export const useCatalog = () => {
         const response = await fetch("/api/make/", {
           method: "GET",
           headers: {
-            "Cache-Control": "no-cache",
+            // "Cache-Control": "no-cache",
           },
         });
 

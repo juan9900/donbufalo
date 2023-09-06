@@ -69,8 +69,9 @@ const ImageContainer = styled.div`
 export default function PlanContainer() {
   return (
     <CustomContainer id="plan-container" className="relative ">
-      <FullHeader className="bg-black text-foreground text-center pt-2 pb-2 px-3 md:px-0 ">
-        TE OBSEQUIAMOS NUESTRO <span className="text-gray">PLAN SANITARIO</span>
+      <FullHeader className="tracking-wide bg-black text-foreground text-center pt-2 pb-2 px-3 md:px-0 ">
+        TE OBSEQUIAMOS NUESTRO{" "}
+        <span className="text-customGray">PLAN SANITARIO</span>
       </FullHeader>
       <PlanDownloadButton
         href="/img/IMAGEN-3.webp"
@@ -79,7 +80,7 @@ export default function PlanContainer() {
       >
         ¡DESCARGALO AQUÍ!
       </PlanDownloadButton>
-      <DarkText className="3xl:text-2xl text-base text-primary w-full px-5 my-10 md:px-0 md:w-3/6 text-center mx-auto">
+      <DarkText className=" text-xl text-primary w-full px-5 my-10 md:px-0 md:w-3/6 text-center mx-auto">
         Te ayudará a mantener la buena salud de tus búfalos. Sigue las
         recomendaciones específicas para asegurarte de que tus animales reciban
         los cuidados adecuados y prevenir enfermedades, asegurando la calidad de

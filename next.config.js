@@ -1,5 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/bufalo",
+        destination: "/",
+        permanent: true,
+      },
+    ];
+  },
+
   images: {
     domains: ["dl.airtable.com"],
     remotePatterns: [

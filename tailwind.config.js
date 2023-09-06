@@ -36,6 +36,9 @@ module.exports = {
             "5xl": "3.052rem",
           },
           colors: {
+            default: {
+              foreground: "#fdfdfd",
+            },
             background: "#fdfdfd",
             foreground: "#fdfdfd",
             darkBackground: "#1b181a",
@@ -48,9 +51,10 @@ module.exports = {
             black: "#2e2c2e",
             foregroundDarker: "#d1d1d1",
             darkText: "#212427",
-            gray: "#a6a4a4",
+            customGray: "#c7c7c7",
             cardBackground: "#eeeeee",
-            bgDark: "#202124",
+            bgDark: "#381b22",
+            bgCardBufalo: "#505050",
           },
         },
       },
