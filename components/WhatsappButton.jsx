@@ -5,7 +5,7 @@ export default function WhatsappButton() {
   return (
     <div className="fixed bottom-3 right-3 z-50">
       <a
-        href="https://wa.me/573016928524"
+        href="https://wa.me/584146429164"
         target="_blank"
         className="bg-green-500 rounded-full h-[5rem] w-[5rem] flex items-center justify-center"
       >

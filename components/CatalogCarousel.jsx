@@ -124,6 +124,8 @@ const CustomSpinner = styled(Spinner)`
 
 const CatalogCarousel = () => {
   const { data, loading, error } = useCatalog();
+  console.log({ data, loading, error });
+  console.log(data);
 
   if (loading) {
     return (
@@ -136,24 +138,26 @@ const CatalogCarousel = () => {
   return (
     <>
       <div className="w-4/5 mx-auto md:mt-10 mt-5 ">
-        <CustomSlider {...settings} className="">
-          {data ? (
-            data.map((bufalo) => {
+        {data ? (
+          <CustomSlider {...settings} className="">
+            {data.map((bufalo) => {
               return (
-                <CustomCardWrapper className="py-10" key={bufalo.data.ARETE}>
+                <CustomCardWrapper className="py-10" key={bufalo.arete}>
                   <CatalogItem
-                    code={bufalo.data.ARETE}
-                    birthday={bufalo.data["fecha nacimiento"]}
-                    imageUrl={bufalo.data["foto animal"]}
-                    category={bufalo.data.calsificacion}
+                    code={bufalo.arete}
+                    birthday={bufalo.nacimiento}
+                    imageUrl={bufalo.foto_animal}
+                    category={bufalo.categoria}
                   />
                 </CustomCardWrapper>
               );
-            })
-          ) : (
-            <DarkText>Actualmente no hay animales para mostrar</DarkText>
-          )}
-        </CustomSlider>
+            })}
+          </CustomSlider>
+        ) : (
+          <DarkText className="text-black text-center ">
+            Actualmente no hay búfalos para mostrar
+          </DarkText>
+        )}
       </div>
     </>
   );
