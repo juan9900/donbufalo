@@ -70,13 +70,12 @@ export default function PlanContainer() {
   return (
     <CustomContainer id="plan-container" className="relative ">
       <FullHeader className="tracking-wide bg-black text-foreground text-center pt-2 pb-2 px-3 md:px-0 ">
-        TE OBSEQUIAMOS NUESTRO{" "}
-        <span className="text-customGray">PLAN SANITARIO</span>
+        TE OBSEQUIAMOS NUESTRO PLAN SANITARIO
       </FullHeader>
       <PlanDownloadButton
         href="/img/IMAGEN-3.webp"
         target="_blank"
-        className="bg-secondary md:px-20 px-10 mx-auto md:my-0 mt-10"
+        className="text-foreground bg-secondary md:px-20 px-10 mx-auto md:my-0 mt-10"
       >
         ¡DESCARGALO AQUÍ!
       </PlanDownloadButton>

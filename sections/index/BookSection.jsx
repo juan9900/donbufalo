@@ -82,7 +82,7 @@ export default function BookContainer() {
           <BuyButton
             href="https://api.whatsapp.com/send/?phone=584143607847&text=Necesito+informacion+del+libro+donde+comprarlo&type=phone_number&app_absent=0"
             target="_blank"
-            className="bg-secondary hover:bg-secondaryDarker"
+            className="text-foreground bg-secondary hover:bg-secondaryDarker"
           >
             ¡CÓMPRALO AHORA!
           </BuyButton>

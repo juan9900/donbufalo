@@ -58,10 +58,10 @@ export default function HeaderContainer() {
         </div>
 
         <div className="flex-1 flex flex-col relative">
-          <HeaderTitle>
+          <HeaderTitle className="text-foreground">
             DON BÚFALO <HeaderTitleSpan>CENTRO DE CRÍA MURRAH</HeaderTitleSpan>
           </HeaderTitle>
-          <BorderedText className="text-center px-5 py-2 mt-5 border-foreground border">
+          <BorderedText className="text-foreground text-center px-5 py-2 mt-5 border-foreground border">
             Más de 12 años de experiencia <br /> en el sector agropecuario
           </BorderedText>
           <div className="flex absolute bottom-20 md:bottom-0 3xl:h-[10rem] h-[4rem] flex-1  justify-center items-center overflow-auto mt-5  w-full">
