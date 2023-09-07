@@ -23,6 +23,10 @@ const CustomCard = styled(Link)`
   .animal-info p:first-of-type {
     font-size: 1.5em;
   }
+
+  @media screen and (min-width: 1920px) {
+    width: 85%;
+  }
 `;
 
 const MissingImg = styled.div`

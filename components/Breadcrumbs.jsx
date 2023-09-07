@@ -12,10 +12,8 @@ export default function BreadCrumbs() {
   useEffect(() => {
     const pathArray = pathname.split("/");
     setBreadcrumbs(pathArray);
-    console.log("setted breadcrumbs");
     // Filter the pathArray checking if any of the paths is included in the invalidLinks array
   }, []);
-  console.log(pathname);
 
   if (breadcrumbs === null) {
     return null;

@@ -20,7 +20,7 @@ export const DarkHeader = styled.h2`
   font-size: 4rem;
   font-weight: 800;
   line-height: 3.9rem;
-  font-family: "Anzeigen", sans-serif;
+  font-family: "Anzeigen";
   @media screen and (max-width: 768px) {
     font-size: 2.5rem;
     line-height: 2.5rem;

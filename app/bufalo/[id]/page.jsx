@@ -7,6 +7,7 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import wsLogo from "/public/icons/WS.svg";
 import { useBufalo } from "@/hooks/useBufalo";
+
 const CustomContainer = styled.div`
   background: url("/img/TEXTURA.jpg");
 `;
@@ -63,6 +64,10 @@ const WhatsappButton = styled.a`
   }
 `;
 
+const CustomHeading = styled.h2`
+  font-family: "Anzeigen";
+`;
+
 const BackButton = styled(Link)``;
 
 export default function BufaloScreen() {
@@ -89,10 +94,10 @@ export default function BufaloScreen() {
   return (
     <CustomContainer className="3xl:pt-40 pt-20 min-h-screen h-full">
       <Link
-        className="text-xl rounded-lg px-5 py-2 ml-20 mt-20  bg-gray-200 text-black md:ml-20 ml-3 mr-auto md:mr-0 w-fit"
+        className="text-xl rounded-lg px-5 py-2 ml-20 mt-20  bg-gray-200 ease-in-out duration-100 transition-all hover:bg-gray-300 text-black md:ml-20 ml-3 mr-auto md:mr-0 w-fit"
         href={"/#catalogo-container"}
       >
-        {"< Volver a inicio"}
+        {"Volver a inicio"}
       </Link>
       <div className="w-100  flex flex-col lg:flex-row mt-10">
         <div className="flex-1 flex flex-col lg:flex-row  justify-end ">
@@ -177,8 +182,26 @@ export default function BufaloScreen() {
           </WhatsappButton>
         </div>
       </div>
-      <div className="w-full 3xl:w-2/6  md:w-3/6 mx-auto ">
-        <Skeleton isLoaded={dataLoaded} className="rounded-lg mt-10 ">
+      <CustomHeading className="text-5xl text-black text-center mt-16">
+        Ficha
+      </CustomHeading>
+      <div className=" bg-background drop-shadow rounded-lg p-5 w-11/12 3xl:w-2/6 mt-5 md:w-3/6 mx-auto h-[20rem] xl:h-[40rem]">
+        <Skeleton isLoaded={dataLoaded} className="rounded-lg w-full h-full ">
+          <Image
+            className="w-full"
+            objectFit="contain"
+            alt={`Ficha de bufalo ${bufaloData.arete}}`}
+            src={bufaloData.ficha_animal}
+            fill
+          />
+        </Skeleton>
+      </div>
+
+      <CustomHeading className="text-5xl text-black text-center mt-16">
+        Registros de padres
+      </CustomHeading>
+      <div className=" 3xl:w-2/6  md:w-3/6 mx-auto  ">
+        <Skeleton isLoaded={dataLoaded} className="rounded-lg mt-0 ">
           <BufaloTabs tabs={bufaloTabs} />
         </Skeleton>
       </div>

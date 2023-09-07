@@ -92,7 +92,6 @@ export default function FormContainer() {
     e.preventDefault();
   };
 
-  console.log(watch("nombre"));
   return (
     <CustomFormContainer className="bg-secondary" id="contacto-container">
       <FormHeader className="text-center pt-20">

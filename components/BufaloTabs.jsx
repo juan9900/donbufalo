@@ -25,7 +25,6 @@ const CustomTabs = styled(Tabs)`
   }
 `;
 export default function BufaloTabs({ tabs }) {
-  console.log(tabs);
   const validTabs = tabs.filter((tab) => tab.content !== "");
   return (
     <div className="flex  w-full mx-auto flex-col justify-start  h-[50rem] lg:h-[70rem] relative ">
@@ -33,11 +32,12 @@ export default function BufaloTabs({ tabs }) {
         className="mx-auto mt-10"
         aria-label="Dynamic tabs"
         items={validTabs}
+        size="sm"
       >
         {(item) => (
           <Tab className=" flex-1" key={item.title} title={item.title}>
             <Card className=" h-full h-[35rem] lg:h-[50rem] ">
-              <CardBody className="h-fit ">
+              <CardBody className=" h-fit px-5">
                 <div className=" w-full p-0 flex items-start h-full relative ">
                   <Image
                     className=" align-bottom w-full h-full"

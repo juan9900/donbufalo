@@ -9,7 +9,6 @@ const CustomContainer = styled.div`
 
   @media screen and (max-width: 1281px) {
     padding: 3rem 1rem;
-    margin-top: -1rem;
     background: url("/img/TEXTURA.jpg");
   }
 `;
@@ -22,7 +21,7 @@ export default function UsContainer() {
       <div className="grid grid-cols-1 2xl:grid-cols-2 gap-4 3xl:py-20 ">
         <div></div>
         <div className="flex items-center   flex-col 2xl:w-full md:mx-auto">
-          <div className="w-full 2xl:pl-28 3xl:pl-40">
+          <div className="w-full 2xl:pl-28 3xl:pl-40 2xl:pr-5">
             <DarkHeader className="text-center text-primary ">
               DESCUBRE QUIÉNES SOMOS Y CÓMO PUEDES INVERTIR
               <DarkHeaderSpan className="text-secondary">

@@ -55,8 +55,6 @@ export default function CustomNavbar() {
 
   const router = useRouter();
 
-  console.log(pathname);
-
   // useEffect(() => {
   //   const closeMenuOnOutsideClick = (e) => {
   //     if (isMenuOpen && e.target.closest(".navbar-menu") === null) {

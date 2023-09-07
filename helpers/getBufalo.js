@@ -6,7 +6,6 @@ export const getBufalo = async (id) => {
     const docRef = doc(db, "bufalos", id);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-      console.log("Document data:", docSnap.data());
       return { ok: true, data: docSnap.data() };
     } else {
       // doc.data() will be undefined in this case

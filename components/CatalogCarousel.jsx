@@ -124,8 +124,6 @@ const CustomSpinner = styled(Spinner)`
 
 const CatalogCarousel = () => {
   const { data, loading, error } = useCatalog();
-  console.log({ data, loading, error });
-  console.log(data);
 
   if (loading) {
     return (

@@ -10,8 +10,6 @@ export default function HeaderContainer() {
     background-size: cover;
     background-position: 0 60%;
     background-repeat: no-repeat;
-    height: 100vh;
-
     @media screen and (max-width: 1281px) {
       background: url("/img/FONDO.jpg");
     }
@@ -21,7 +19,6 @@ export default function HeaderContainer() {
     font-weight: 800;
     font-size: 7.5rem;
     text-align: center;
-    margin-top: -2rem;
     font-family: "Anzeigen", sans-serif;
     line-height: 5rem;
     @media (max-width: 768px) {
@@ -46,9 +43,9 @@ export default function HeaderContainer() {
   return (
     <CustomHeader
       id="header-container"
-      className="grid grid-cols-1 2xl:grid-cols-2 gap-4 pt-20 pb-0  md:pb-20"
+      className="grid grid-cols-1 2xl:grid-cols-2 gap-4 pt-20 pb-0  md:pb-0 min-h-screen"
     >
-      <div className="flex items-center flex-col pt-10 md:pt-0 relative  3xl:pt-40">
+      <div className="flex items-center flex-col pt-0 md:pt-0 relative  3xl:pt-40">
         <div className="flex-1 relative  w-full">
           <Image
             className="object-contain"
@@ -60,15 +57,15 @@ export default function HeaderContainer() {
           />
         </div>
 
-        <div className="flex-1">
+        <div className="flex-1 flex flex-col relative">
           <HeaderTitle>
             DON BÚFALO <HeaderTitleSpan>CENTRO DE CRÍA MURRAH</HeaderTitleSpan>
           </HeaderTitle>
           <BorderedText className="text-center px-5 py-2 mt-5 border-foreground border">
             Más de 12 años de experiencia <br /> en el sector agropecuario
           </BorderedText>
-          <div className="flex justify-center items-center overflow-auto mt-5  w-full">
-            <ArrowDown />
+          <div className="flex absolute bottom-20 md:bottom-0 3xl:h-[10rem] h-[4rem] flex-1  justify-center items-center overflow-auto mt-5  w-full">
+            <ArrowDown className=" top-2/4 3xl:top-0" />
           </div>
         </div>
       </div>

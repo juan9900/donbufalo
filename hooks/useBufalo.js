@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { getBufalo } from "@/helpers/getBufalo";
@@ -37,16 +38,13 @@ export const useBufalo = () => {
 
   useEffect(() => {
     const fecthBufalo = async () => {
-      console.log(id);
       const response = await getBufalo(id);
       if (!response.ok) {
-        console.log("error");
         setBufaloData(false);
         setBufaloNotFound(true);
         return;
       }
       const age = calculateYears(response.data.nacimiento);
-      console.log({ age });
       const bufaloDataFull = { ...response.data, age };
       setBufaloData(bufaloDataFull);
 
