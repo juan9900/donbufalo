@@ -187,6 +187,7 @@ export default function BubillaSection() {
               src={bufalo}
               width={400}
               height={400}
+              className="rounded-lg"
             />
           </div>
           <div className="image-container">
@@ -195,6 +196,7 @@ export default function BubillaSection() {
               src={bufalo2}
               width={400}
               height={400}
+              className="rounded-lg"
             />
           </div>
           <div className="image-container">
@@ -203,6 +205,7 @@ export default function BubillaSection() {
               src={bufalo}
               width={400}
               height={400}
+              className="rounded-lg"
             />
           </div>
           <div className="image-container">
@@ -211,6 +214,7 @@ export default function BubillaSection() {
               src={bufalo2}
               width={400}
               height={400}
+              className="rounded-lg"
             />
           </div>
           <div className="image-container">
@@ -219,6 +223,7 @@ export default function BubillaSection() {
               src={bufalo}
               width={400}
               height={400}
+              className="rounded-lg"
             />
           </div>
           <div className="image-container">
@@ -227,6 +232,7 @@ export default function BubillaSection() {
               src={bufalo2}
               width={400}
               height={400}
+              className="rounded-lg"
             />
           </div>
           <div className="image-container">
@@ -235,6 +241,7 @@ export default function BubillaSection() {
               src={bufalo}
               width={400}
               height={400}
+              className="rounded-lg"
             />
           </div>
           <div className="image-container">
@@ -243,6 +250,7 @@ export default function BubillaSection() {
               src={bufalo2}
               width={400}
               height={400}
+              className="rounded-lg"
             />
           </div>
         </CustomSlider>
