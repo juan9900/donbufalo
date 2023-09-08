@@ -35,10 +35,22 @@ export default function BookContainer() {
     margin-top: 2rem;
     font-family: "Anzeigen", sans-serif;
     font-size: 2.5rem;
-    transition: ease 0.3s;
-
+    transition: background ease 0.3s;
+    animation: pulse 2s infinite;
     @media screen and (max-width: 768px) {
       margin: 2rem auto;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
     }
   `;
 

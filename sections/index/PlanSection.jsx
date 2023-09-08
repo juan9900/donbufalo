@@ -47,6 +47,19 @@ const PlanDownloadButton = styled.a`
   width: fit-content;
   border-bottom-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
+  animation: pulse 2s infinite;
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 
   @media screen and (max-width: 768px) {
     font-size: 2.3rem;
@@ -69,7 +82,7 @@ const ImageContainer = styled.div`
 export default function PlanContainer() {
   return (
     <CustomContainer id="plan-container" className="relative ">
-      <FullHeader className="tracking-wide bg-black text-foreground text-center pt-2 pb-2 px-3 md:px-0 ">
+      <FullHeader className=" relative z-10 tracking-wide bg-black text-foreground text-center pt-2 pb-2 px-3 md:px-0 ">
         TE OBSEQUIAMOS NUESTRO PLAN SANITARIO
       </FullHeader>
       <PlanDownloadButton

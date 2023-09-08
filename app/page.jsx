@@ -8,6 +8,7 @@ import TestimonialsSection from "@/sections/index/TestimonialsSection";
 import FormSection from "@/sections/index/FormSection";
 import Footer from "@/components/Footer";
 import WhatsappButton from "@/components/WhatsappButton";
+import BubillaSection from "@/sections/index/BubillaSection";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <UsSection />
       <PlanSection />
       <CatalogSection />
+      <BubillaSection />
       <BookSection />
       <TestimonialsSection />
       <FormSection />

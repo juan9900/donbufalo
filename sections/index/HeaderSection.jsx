@@ -45,7 +45,7 @@ export default function HeaderContainer() {
       id="header-container"
       className="grid grid-cols-1 2xl:grid-cols-2 gap-4 pt-20 pb-0  md:pb-0 min-h-screen"
     >
-      <div className="flex items-center flex-col pt-0 md:pt-0 relative  3xl:pt-40">
+      <div className="flex items-center flex-col pt-0 md:pt-0 relative  3xl:pt-20">
         <div className="flex-1 relative  w-full">
           <Image
             className="object-contain"

@@ -104,7 +104,7 @@ export default function FormContainer() {
         >
           <div className="flex md:flex-row flex-col ">
             <CustomDiv className="flex flex-1 flex-col md:w-1/2 w-full md:mx-5 my-6 relative ">
-              <CustomLabel className="text-foreground" for="form-name">
+              <CustomLabel className="text-foreground" htmlFor="form-name">
                 Nombre
               </CustomLabel>
               <CustomInput
@@ -131,7 +131,9 @@ export default function FormContainer() {
             </CustomDiv>
 
             <CustomDiv className="flex flex-1 flex-col md:w-1/2 w-full md:mx-5 my-6">
-              <CustomLabel for="form-apellido">Apellido</CustomLabel>
+              <CustomLabel className="text-foreground" htmlFor="form-apellido">
+                Apellido
+              </CustomLabel>
               <CustomInput
                 className="bg-transparent"
                 id="form-apellido"
@@ -158,7 +160,9 @@ export default function FormContainer() {
 
           <div className="flex md:flex-row flex-col">
             <CustomDiv className="flex flex-col md:w-1/2 w-full md:mx-5 md:my-10 my-6">
-              <CustomLabel for="form-correo">Correo Electrónico</CustomLabel>
+              <CustomLabel className="text-foreground" htmlFor="form-correo">
+                Correo Electrónico
+              </CustomLabel>
               <CustomInput
                 className="bg-transparent"
                 id="form-correo"
@@ -179,7 +183,9 @@ export default function FormContainer() {
             </CustomDiv>
 
             <CustomDiv className="flex flex-col md:w-1/2 w-full md:mx-5 md:my-10 my-6">
-              <CustomLabel for="form-telefono">Teléfono</CustomLabel>
+              <CustomLabel className="text-foreground" htmlFor="form-telefono">
+                Teléfono
+              </CustomLabel>
               <CustomInput
                 className="bg-transparent"
                 id="form-telefono"
@@ -202,7 +208,9 @@ export default function FormContainer() {
           </div>
 
           <FormTextContainer className="flex flex-col md:mx-5 mt-6">
-            <CustomLabel for="form-mensaje">Mensaje</CustomLabel>
+            <CustomLabel className="text-foreground" htmlFor="form-mensaje">
+              Mensaje
+            </CustomLabel>
             <CustomTextArea
               id="form-mensaje"
               {...register("mensaje", {

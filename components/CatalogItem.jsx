@@ -25,7 +25,7 @@ const CustomCard = styled(Link)`
   }
 
   @media screen and (min-width: 1920px) {
-    width: 85%;
+    width: 70%;
   }
 `;
 

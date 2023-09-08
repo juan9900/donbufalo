@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -55,27 +55,12 @@ export default function CustomNavbar() {
 
   const router = useRouter();
 
-  // useEffect(() => {
-  //   const closeMenuOnOutsideClick = (e) => {
-  //     if (isMenuOpen && e.target.closest(".navbar-menu") === null) {
-  //       setIsMenuOpen(false);
-  //     }
-  //   };
-
-  //   // Add event listeners when the component mounts
-  //   document.addEventListener("click", closeMenuOnOutsideClick);
-
-  //   // Clean up event listeners when the component unmounts
-  //   return () => {
-  //     document.removeEventListener("click", closeMenuOnOutsideClick);
-  //   };
-  // }, [isMenuOpen]);
-
   const menuItems = [
     { title: "Inicio", goto: "header-container" },
     { title: "Nosotros", goto: "us-container" },
     { title: "Plan Sanitario", goto: "plan-container" },
     { title: "Catálogo", goto: "catalogo-container" },
+    { title: "Bubillas", goto: "bubillas-container" },
     { title: "Libro", goto: "book-container" },
     { title: "Testimonios", goto: "testimonials-container" },
 
@@ -100,30 +85,40 @@ export default function CustomNavbar() {
 
     // Check if you're on the index page or a different page
     setTimeout(() => {
-      scrollToSection(goto, goto.includes("catalogo") ? 0 : 60);
+      scrollToSection(
+        goto,
+        goto.includes("catalogo") || goto.includes("bubillas") ? 0 : 60
+      );
     }, 100);
   };
   return (
     <CustomNav
-      className="bg-darkBackground 3xl:py-3"
+      className="bg-darkBackground text-foreground 3xl:py-3"
       onMenuOpenChange={setIsMenuOpen}
       isMenuOpen={isMenuOpen}
       // position="sticky"
       shouldHideOnScroll
     >
       <NavbarContent>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
+        {pathname === "/" && (
+          <NavbarMenuToggle
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            className="sm:hidden"
+          />
+        )}
         <NavbarBrand className="relative flex flex-row justify-start">
-          <BrandLogo width={60} height={60} src={logo} alt="Logo Don Bufalo" />
           <Link
             href={pathname !== "/" ? "/" : "#header-container"}
             className="font-bold text-foreground cursor-pointer"
             goto="header-container"
             onClick={onBtnClick}
           >
+            <BrandLogo
+              width={60}
+              height={60}
+              src={logo}
+              alt="Logo Don Bufalo"
+            />
             DON BUFALO
           </Link>
         </NavbarBrand>
@@ -171,6 +166,16 @@ export default function CustomNavbar() {
             </NavbarItem>
             <NavbarItem>
               <Link
+                href={pathname !== "/" ? "/" : "#bubillas-container"}
+                className="text-foreground cursor-pointer"
+                goto="bubillas-container"
+                onClick={onBtnClick}
+              >
+                Bubillas
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link
                 href={pathname !== "/" ? "/" : "#book-container"}
                 className="text-foreground cursor-pointer"
                 goto="book-container"
@@ -209,10 +214,13 @@ export default function CustomNavbar() {
                 <Link
                   goto={item.goto}
                   color={"foreground"}
-                  className="w-full"
+                  className="w-full text-black my-2"
                   href="#"
                   size="lg"
-                  // onClick={onBtnClick}
+                  onClick={(e) => {
+                    onBtnClick(e);
+                    setIsMenuOpen(false);
+                  }}
                 >
                   {item.title}
                 </Link>

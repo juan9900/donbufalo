@@ -5,7 +5,7 @@ import TestimonialCard from "/components/TestimonialCard";
 export default function TestimonialsContainer() {
   const TestimonialContainer = styled(TexturedContainer)`
     .cards-container {
-      margin-top: 9rem;
+      margin-top: 5rem;
     }
   `;
   const TestimonialHeader = styled(DarkHeader)`
