@@ -4,6 +4,7 @@ import testimonialImg from "/public/img/testimonial.png";
 
 const TestimonialCardContainer = styled.div`
   position: relative;
+  height: 100%;
   &:after {
     content: "";
 
@@ -21,7 +22,7 @@ const TestimonialCardContainer = styled.div`
   }
 
   @media screen and (max-width: 768px) {
-    margin: 0 0 7rem 0;
+    margin: 5rem 0 7rem 0;
     &:after {
       display: none;
       opacity: 0;
@@ -73,19 +74,18 @@ const TestimonialText = styled.p`
 
 const FloatingImg = styled(Image)`
   position: absolute;
-  width: 50%;
-  bottom: 60% !important;
+  width: 35%;
+  bottom: 70% !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
-
-  @media screen and (max-width: 768px) {
-    width: 40%;
-    bottom: 70%;
-  }
 
   @media screen and (max-width: 1281px) {
     width: 45%;
     bottom: 65% !important;
+  }
+  @media screen and (max-width: 768px) {
+    width: 40%;
+    bottom: 80% !important;
   }
 
   @media screen and (min-width: 1920px) {
@@ -97,9 +97,9 @@ const FloatingImg = styled(Image)`
 export default function TestimonialCard({ text }) {
   return (
     <TestimonialCardContainer>
-      <CustomCard className="bg-secondary flex justify-center ">
+      <CustomCard className="bg-secondary flex justify-center h-full">
         <FloatingImg src={testimonialImg} alt="testimonial" />
-        <TestimonialText className="3xl:text-xl text-center text-foreground">
+        <TestimonialText className=" text-md 3xl:text-xl text-center text-foreground">
           {text}
         </TestimonialText>
       </CustomCard>

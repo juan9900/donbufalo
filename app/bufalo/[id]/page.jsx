@@ -160,7 +160,11 @@ export default function BufaloScreen() {
             <CustomAnimalSubTitle className="text-4xl">
               Edad:{" "}
               <CustomAnimalDescription className="text-3xl">
-                {bufaloData.age > 1 ? `${bufaloData.age} años` : "1 año"}
+                {bufaloData.age > 1
+                  ? `${bufaloData.age} años`
+                  : bufaloData.age === 1
+                  ? "1 año"
+                  : "Menos de 1 año"}
               </CustomAnimalDescription>
             </CustomAnimalSubTitle>
           </Skeleton>
@@ -190,7 +194,7 @@ export default function BufaloScreen() {
           <Image
             className="w-full"
             objectFit="contain"
-            alt={`Ficha de bufalo ${bufaloData.arete}}`}
+            alt={`Ficha de bufalo ${bufaloData.arete}`}
             src={bufaloData.ficha_animal}
             fill
           />

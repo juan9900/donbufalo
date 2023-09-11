@@ -11,7 +11,7 @@ export const useCatalog = () => {
     async function fetchData() {
       try {
         const bufalosRef = collection(db, "bufalos");
-        const q = query(bufalosRef, where("status", "==", "activo"));
+        const q = query(bufalosRef, where("status", "==", "Activo"));
 
         const querySnapshot = await getDocs(q);
         if (querySnapshot.empty) {

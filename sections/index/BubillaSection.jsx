@@ -2,8 +2,18 @@ import CatalogCarousel from "/components/CatalogCarousel";
 import styled from "@emotion/styled";
 import Slider from "react-slick";
 import { TexturedContainer } from "@/styles";
-import bufalo from "/public/img/05905.jpg";
-import bufalo2 from "/public/img/15906.jpg";
+
+import bubilla1 from "/public/img/Bubillas/bubilla1.jpg";
+import bubilla2 from "/public/img/Bubillas/bubilla2.jpg";
+import bubilla3 from "/public/img/Bubillas/bubilla3.jpg";
+import bubilla4 from "/public/img/Bubillas/bubilla4.jpg";
+import bubilla5 from "/public/img/Bubillas/bubilla5.jpg";
+import bubilla6 from "/public/img/Bubillas/bubilla6.jpg";
+import bubilla7 from "/public/img/Bubillas/bubilla7.jpg";
+import bubilla8 from "/public/img/Bubillas/bubilla8.jpg";
+import bubilla9 from "/public/img/Bubillas/bubilla9.jpg";
+import bubilla10 from "/public/img/Bubillas/bubilla10.jpg";
+
 import Image from "next/image";
 import backArrow from "/public/img/FLECHA-back.png";
 import nextArrow from "/public/img/FLECHA.png";
@@ -130,7 +140,7 @@ const CustomSlider = styled(Slider)`
   }
 
   @media screen and (max-width: 768px) {
-    height: 17rem;
+    height: 12rem;
     margin-top: 3rem;
     .slick-dots {
       bottom: -45px;
@@ -184,72 +194,72 @@ export default function BubillaSection() {
           <div className="image-container">
             <Image
               alt="Bubilla Don Bufalo"
-              src={bufalo}
-              width={400}
-              height={400}
+              src={bubilla1}
+              width={500}
+              height={500}
               className="rounded-lg"
             />
           </div>
           <div className="image-container">
             <Image
               alt="Bubilla Don Bufalo"
-              src={bufalo2}
-              width={400}
-              height={400}
+              src={bubilla2}
+              width={500}
+              height={500}
               className="rounded-lg"
             />
           </div>
           <div className="image-container">
             <Image
               alt="Bubilla Don Bufalo"
-              src={bufalo}
-              width={400}
-              height={400}
+              src={bubilla3}
+              width={500}
+              height={500}
               className="rounded-lg"
             />
           </div>
           <div className="image-container">
             <Image
               alt="Bubilla Don Bufalo"
-              src={bufalo2}
-              width={400}
-              height={400}
+              src={bubilla4}
+              width={500}
+              height={500}
               className="rounded-lg"
             />
           </div>
           <div className="image-container">
             <Image
               alt="Bubilla Don Bufalo"
-              src={bufalo}
-              width={400}
-              height={400}
+              src={bubilla5}
+              width={500}
+              height={500}
               className="rounded-lg"
             />
           </div>
           <div className="image-container">
             <Image
               alt="Bubilla Don Bufalo"
-              src={bufalo2}
-              width={400}
-              height={400}
+              src={bubilla6}
+              width={500}
+              height={500}
               className="rounded-lg"
             />
           </div>
           <div className="image-container">
             <Image
               alt="Bubilla Don Bufalo"
-              src={bufalo}
-              width={400}
-              height={400}
+              src={bubilla7}
+              width={500}
+              height={500}
               className="rounded-lg"
             />
           </div>
           <div className="image-container">
             <Image
               alt="Bubilla Don Bufalo"
-              src={bufalo2}
-              width={400}
-              height={400}
+              src={bubilla8}
+              width={500}
+              height={500}
               className="rounded-lg"
             />
           </div>

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function WhatsappButton() {
   return (
-    <div className="fixed  bottom-3 ld:bottom-28 right-3 z-50">
+    <div className="fixed  bottom-20 lg:bottom-28 right-3 z-50">
       <a
         href="https://wa.me/584146429164"
         target="_blank"
