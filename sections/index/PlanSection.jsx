@@ -2,6 +2,7 @@ import { DarkHeader, TexturedContainer } from "@/styles";
 import styled from "@emotion/styled";
 import Image from "next/image";
 import planImg from "/public/img/IMAGEN-3.webp";
+import { motion } from "framer-motion";
 
 const BorderedText = styled.p`
   border-radius: 10rem;
@@ -86,7 +87,7 @@ export default function PlanContainer() {
         TE OBSEQUIAMOS NUESTRO PLAN SANITARIO
       </FullHeader>
       <PlanDownloadButton
-        href="/img/IMAGEN-3.webp"
+        href="/docs/Plan Sanitario Donbufalo.pdf"
         target="_blank"
         className="text-foreground bg-secondary md:px-20 px-10 mx-auto md:my-0 mt-10"
       >
@@ -99,16 +100,18 @@ export default function PlanContainer() {
         vida de los mismos.
       </DarkText>
 
-      <ImageContainer className="relative mb-10 w-full">
-        <Image
-          fill
-          className="w-full"
-          objectFit="contain"
-          sizes="(max-width: 768px) 35vw, (max-width: 1200px) 50vw, 80vw"
-          src={planImg}
-          alt="Don Bufalo Plan Sanitario"
-        />
-      </ImageContainer>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+        <ImageContainer className="relative mb-10 w-full">
+          <Image
+            fill
+            className="w-full"
+            objectFit="contain"
+            sizes="(max-width: 768px) 35vw, (max-width: 1200px) 50vw, 80vw"
+            src={planImg}
+            alt="Don Bufalo Plan Sanitario"
+          />
+        </ImageContainer>
+      </motion.div>
       <BorderedTextBrown className="text-darkText border-3 border-secondary w-90 3xl:w-fit 3xl:px-10 md:w-4/6 text-center mx-auto md:mt-0 mt-10 py-3">
         <span className="text-secondary">¡DESCÁRGALO</span> HOY MISMO Y COMIENZA
         A CUIDAR DE TUS ANIMALES DE LA MEJOR MANERA POSIBLE!

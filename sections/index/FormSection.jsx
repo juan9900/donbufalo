@@ -1,8 +1,9 @@
 "use-client";
-
+import { useState } from "react";
 import { DarkHeader } from "@/styles";
 import styled from "@emotion/styled";
 import { useForm } from "react-hook-form";
+import { Toaster, toast } from "sonner";
 
 const CustomFormContainer = styled.div`
   padding-bottom: 5rem;
@@ -82,14 +83,48 @@ const CustomSubmit = styled(CustomInput)`
 // TODO: SACAR TODOS LOS OBJETOS DE EMOTIONJS FUERA DEL EXPORT
 
 export default function FormContainer() {
+  const [formSent, setFormSent] = useState(false);
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
+    reset,
   } = useForm();
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = (data) => {
+    console.log("submited");
+    //Prepare the data to be sent via post
+    const formData = {
+      nombre: data.nombre,
+      apellido: data.apellido,
+      correo: data.correo,
+      telefono: data.telefono,
+      mensaje: data.mensaje,
+    };
+    console.log(JSON.stringify(formData));
+    // Send the data via post
+    fetch("https://hook.eu1.make.com/4up0au4cthglccbn8dfmb55uusait36o", {
+      method: "POST",
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        if (!data.ok) {
+          toast.error("Error al enviar el mensaje", {
+            description: "Si el problema persiste, comuníquese por WhatsApp",
+          });
+          return;
+        }
+        toast.success("Mensaje enviado con éxito");
+        reset();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        toast.error("Error al enviar el mensaje", {
+          description: "Si el problema persiste, comuníquese por WhatsApp",
+        });
+      });
   };
 
   return (
@@ -98,6 +133,7 @@ export default function FormContainer() {
         ¿DESEAS QUE NOS PONGAMOS <br /> EN CONTACTO CONTIGO?
       </FormHeader>
       <CustomContainer>
+        <Toaster />
         <form
           className="mt-10 flex flex-col w-full px-10 md:w-2/3 md:mx-auto"
           onSubmit={handleSubmit(onSubmit)}
@@ -214,7 +250,10 @@ export default function FormContainer() {
             <CustomTextArea
               id="form-mensaje"
               {...register("mensaje", {
-                required: { value: true, message: "Este campo es requerido*" },
+                required: {
+                  value: true,
+                  message: "Este campo es requerido*",
+                },
               })}
             ></CustomTextArea>
             {errors.mensaje && (
@@ -224,7 +263,6 @@ export default function FormContainer() {
 
           <CustomSubmit
             className="md:ml-auto md:mr-5 mx-auto md:self-end bg-foreground hover:bg-foregroundDarker text-darkText hover:cursor-pointer"
-            onSubmit={onSubmit}
             type="submit"
             value={"ENVIAR"}
           />

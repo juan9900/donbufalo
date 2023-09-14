@@ -68,8 +68,6 @@ const CustomHeading = styled.h2`
   font-family: "Anzeigen";
 `;
 
-const BackButton = styled(Link)``;
-
 export default function BufaloScreen() {
   const { bufaloData, bufaloTabs, dataLoaded, bufaloNotFound } = useBufalo();
   if (bufaloData === false) {

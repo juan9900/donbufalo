@@ -3,6 +3,7 @@ import Image from "next/image";
 import siteLogo from "/public/img/ISO-LOGO-CON-EFECTO.webp";
 import arrowDown from "/public/icons/FLECHA.gif";
 import ArrowDown from "@/components/ArrowDown";
+import Reveal from "@/components/Reveal";
 
 export default function HeaderContainer() {
   const CustomHeader = styled.div`

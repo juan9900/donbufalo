@@ -1,6 +1,10 @@
 import { DarkHeader, TexturedContainer } from "@/styles";
 import styled from "@emotion/styled";
 import TestimonialCard from "/components/TestimonialCard";
+import testimonial1 from "/public/img/testimonial-1.png";
+import testimonial2 from "/public/img/testimonial-2.png";
+import testimonial3 from "/public/img/testimonial-3.png";
+import Reveal from "@/components/Reveal";
 
 const testimonials = [
   {
@@ -27,6 +31,8 @@ export default function TestimonialsContainer() {
     }
   `;
 
+  console.log(testimonial1);
+
   return (
     <TestimonialContainer
       id="testimonials-container"
@@ -39,17 +45,21 @@ export default function TestimonialsContainer() {
         <div className="w-5/5 flex  flex-col items-between md:flex-row md:justify-between cards-container">
           <div className="flex-1 ">
             <TestimonialCard
+              src={testimonial1}
               text={`"Estoy muy contenta con el servicio de Don Búfalo fueron muy profesionales y atentos desde el primer contacto. Los animales que adquirí están en excelente estado de salud y son de alta calidad. ¡Recomiendo a Don Búfalo sin dudarlo!"`}
             />
           </div>
+
           <div className="flex-1 ">
             <TestimonialCard
-              text={`"Quiero agradecer a Don Búfalo por el excelente servicio que me brindaron al comprar animales, esta ha sido una compra satisfactoria. Me asesoraron de manera personalizada y me ayudaron a encontrar los animales que mejor se adaptaban a mis necesidades."`}
+              src={testimonial2}
+              text={`"Estoy muy agradecido por su profesionalismo, el servicio de Don Búfalo al comprar animales fue excepcional. Fueron muy amables, respondieron todas mis preguntas y me proporcionaron toda la información que necesitaba para tomar una decisión informada."`}
             />
           </div>
           <div className="flex-1 ">
             <TestimonialCard
-              text={`"Estoy muy agradecido por su profesionalismo, el servicio de Don Búfalo al comprar animales fue excepcional. Fueron muy amables, respondieron todas mis preguntas y me proporcionaron toda la información que necesitaba para tomar una decisión informada."`}
+              src={testimonial3}
+              text={`"Quiero agradecer a Don Búfalo por el excelente servicio que me brindaron al comprar animales, esta ha sido una compra satisfactoria. Me asesoraron de manera personalizada y me ayudaron a encontrar los animales que mejor se adaptaban a mis necesidades."`}
             />
           </div>
         </div>

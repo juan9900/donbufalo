@@ -1,6 +1,6 @@
 import { db } from "@/firebase/config";
 import { useState, useEffect } from "react";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs, orderBy } from "firebase/firestore";
 
 export const useCatalog = () => {
   const [data, setData] = useState(null);
@@ -11,7 +11,11 @@ export const useCatalog = () => {
     async function fetchData() {
       try {
         const bufalosRef = collection(db, "bufalos");
-        const q = query(bufalosRef, where("status", "==", "Activo"));
+        const q = query(
+          bufalosRef,
+          where("status", "==", "Activo"),
+          orderBy("nacimiento")
+        );
 
         const querySnapshot = await getDocs(q);
         if (querySnapshot.empty) {
@@ -24,6 +28,7 @@ export const useCatalog = () => {
       } catch (error) {
         setError(error);
         setLoading(false);
+        console.log(error);
       }
     }
     fetchData();

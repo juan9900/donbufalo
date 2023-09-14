@@ -22,7 +22,7 @@ const SocialLogo = styled(Image)`
 export default function Footer() {
   return (
     <CustomFooter className="flex flex-col bg-darkBackground">
-      <div className="flex flex-row justify-center md:w-2/5 mx-auto ">
+      <div className="flex flex-row justify-center w-full md:w-2/5 mx-auto ">
         <a
           className="flex-1 mx-5 flex justify-center "
           href="https://www.instagram.com/donbufalo/?hl=en"

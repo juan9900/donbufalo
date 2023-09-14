@@ -3,49 +3,29 @@ import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { getBufalo } from "@/helpers/getBufalo";
 
-function formatDateToYYYYMMDD(date) {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0"); // Month is zero-based
-  const day = String(date.getDate()).padStart(2, "0");
+function formatDateToDDMMYYYY(timestamp) {
+  const date = new Date(
+    timestamp.seconds * 1000 + timestamp.nanoseconds / 1000000
+  );
 
-  return `${year}-${month}-${day}`;
+  // Extract the day, month, and year components
+  const day = date.getDate();
+  const month = date.getMonth() + 1; // Months are 0-indexed, so add 1
+  const year = date.getFullYear();
+
+  // Format the date as "DD/MM/YYYY"
+  const formattedDate = `${day}/${month}/${year}`;
+
+  return formattedDate;
 }
 
 const calculateYears = (date) => {
-  // Split the date string into components
-  const parts = date.split("/");
-  const day = parseInt(parts[0], 10);
-  const monthName = parts[1];
-  const year = parseInt(parts[2], 10);
-
-  // Define a map of month names to month numbers
-  const monthMap = {
-    enero: 0,
-    febrero: 1,
-    marzo: 2,
-    abril: 3,
-    mayo: 4,
-    junio: 5,
-    julio: 6,
-    agosto: 7,
-    septiembre: 8,
-    octubre: 9,
-    noviembre: 10,
-    diciembre: 11,
-  };
-
-  // Use the map to get the month number
-  const month = monthMap[monthName.toLowerCase()];
-
-  // Create the Date object
-  const parsedDate = new Date(year, month, day, 0, 0, 0, 0);
-  const formatedDate = formatDateToYYYYMMDD(parsedDate);
-  console.log(formatedDate);
-
-  const birthdateArray = formatedDate.split("-"); // Assuming birthdate is in 'YYYY-MM-DD' format
-  const birthYear = parseInt(birthdateArray[0], 10);
+  const birthdateArray = date.split("/"); // Assuming birthdate is in 'DD-MM-YYYY' format
+  console.log("golis");
+  const birthYear = parseInt(birthdateArray[2], 10);
   const birthMonth = parseInt(birthdateArray[1], 10);
-  const birthDay = parseInt(birthdateArray[2], 10);
+  const birthDay = parseInt(birthdateArray[0], 10);
+  console.log({ birthYear });
 
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
@@ -53,6 +33,7 @@ const calculateYears = (date) => {
   const currentDay = currentDate.getDate();
 
   let age = currentYear - birthYear;
+  console.log({ age });
 
   // Check if the birthdate for this year has not yet occurred
   if (
@@ -71,11 +52,13 @@ export const useBufalo = () => {
     chip_completo: "",
     clasificacion: "",
     nacimiento: "",
+    age: "",
     foto_animal: "",
+    ficha_animal: "",
     registro_padre_venezolano: "",
-    registro_padre_colombiano: "",
-    registro_madre_venezolana: "",
-    registro_madre_brasilena: "",
+    registro_padre_origen: "",
+    registro_madre_venezolano: "",
+    registro_madre_origen: "",
   });
   const [bufaloTabs, setBufaloTabs] = useState([
     {
@@ -95,8 +78,22 @@ export const useBufalo = () => {
         setBufaloNotFound(true);
         return;
       }
-      const age = calculateYears(response.data.nacimiento);
-      const bufaloDataFull = { ...response.data, age };
+
+      const formatDate = formatDateToDDMMYYYY(response.data.nacimiento);
+      const age = calculateYears(formatDate);
+      const bufaloDataFull = {
+        arete: response.data.arete,
+        chip_completo: response.data.chip_completo,
+        clasificacion: response.data.clasificacion,
+        nacimiento: formatDate,
+        age: age,
+        foto_animal: response.data.foto_animal,
+        ficha_animal: response.data.ficha_animal,
+        registro_padre_venezolano: response.data.registro_padre_venezolano,
+        registro_padre_origen: response.data.registro_padre_origen,
+        registro_madre_venezolano: response.data.registro_madre_venezolano,
+        registro_madre_origen: response.data.registro_madre_origen,
+      };
       setBufaloData(bufaloDataFull);
 
       setBufaloTabs([

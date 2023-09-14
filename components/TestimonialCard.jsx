@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import Image from "next/image";
 import testimonialImg from "/public/img/testimonial.png";
+import Reveal from "@/components/Reveal";
 
 const TestimonialCardContainer = styled.div`
   position: relative;
@@ -89,16 +90,16 @@ const FloatingImg = styled(Image)`
   }
 
   @media screen and (min-width: 1920px) {
-    width: 35%;
+    width: 28%;
     bottom: 70% !important;
   }
 `;
 
-export default function TestimonialCard({ text }) {
+export default function TestimonialCard({ text, src }) {
   return (
-    <TestimonialCardContainer>
+    <TestimonialCardContainer className="3xl:mt-5">
       <CustomCard className="bg-secondary flex justify-center h-full">
-        <FloatingImg src={testimonialImg} alt="testimonial" />
+        <FloatingImg src={src} alt="testimonial" />
         <TestimonialText className=" text-md 3xl:text-xl text-center text-foreground">
           {text}
         </TestimonialText>
