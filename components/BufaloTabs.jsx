@@ -27,7 +27,7 @@ const CustomTabs = styled(Tabs)`
 export default function BufaloTabs({ tabs }) {
   const validTabs = tabs.filter((tab) => tab.content !== "");
   return (
-    <div className="flex  w-full mx-auto flex-col justify-start  h-[50rem] lg:h-[70rem] relative ">
+    <div className="flex  w-full mx-auto flex-col justify-start  h-[50rem] lg:h-[60rem] relative ">
       <CustomTabs
         className="mx-auto mt-10"
         aria-label="Dynamic tabs"

@@ -60,7 +60,7 @@ export default function BookContainer() {
 
   return (
     <BookContainer id="book-container">
-      <CustomContainer className="flex md:pt-20  flex-col items-start justify-center mx-auto   relative md:flex-row md:justify-between">
+      <CustomContainer className="flex md:pt-5 flex-col items-start justify-center mx-auto   relative md:flex-row md:justify-between">
         <div className="w-full md:w-3/6 flex flex-col justify-center  pt-10  ">
           <DarkHeaderBookContainer className="text-secondary md:text-left text-center">
             LIBRO <br className="hidden" />
@@ -92,7 +92,7 @@ export default function BookContainer() {
           </DarkText>
 
           <BuyButton
-            href="https://api.whatsapp.com/send/?phone=584143607847&text=Necesito+informacion+del+libro+donde+comprarlo&type=phone_number&app_absent=0"
+            href="https://donbufalo.com/libro-bufalos"
             target="_blank"
             className="text-foreground bg-secondary hover:bg-secondaryDarker"
           >

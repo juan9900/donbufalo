@@ -4,19 +4,6 @@ import TestimonialCard from "/components/TestimonialCard";
 import testimonial1 from "/public/img/testimonial-1.png";
 import testimonial2 from "/public/img/testimonial-2.png";
 import testimonial3 from "/public/img/testimonial-3.png";
-import Reveal from "@/components/Reveal";
-
-const testimonials = [
-  {
-    text: "Estoy muy contenta con el servicio de Don Búfalo fueron muy profesionales y atentos desde el primer contacto. Los animales que adquirí están en excelente estado de salud y son de alta calidad. ¡Recomiendo a Don Búfalo sin dudarlo!",
-  },
-  {
-    text: "Quiero agradecer a Don Búfalo por el excelente servicio que me brindaron al comprar animales, esta ha sido una compra satisfactoria. Me asesoraron de manera personalizada y me ayudaron a encontrar los animales que mejor se adaptaban a mis necesidades.",
-  },
-  {
-    text: "Compré animales a Don Búfalo y tuve una experiencia maravillosa. No solo me ofrecieron animales sanos y de gran calidad, sino que también me brindaron un excelente servicio postventa. Estoy muy feliz con mi decisión.",
-  },
-];
 
 export default function TestimonialsContainer() {
   const TestimonialContainer = styled(TexturedContainer)`
@@ -30,8 +17,6 @@ export default function TestimonialsContainer() {
       margin-bottom: -2rem;
     }
   `;
-
-  console.log(testimonial1);
 
   return (
     <TestimonialContainer

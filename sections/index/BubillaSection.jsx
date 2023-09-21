@@ -3,16 +3,11 @@ import styled from "@emotion/styled";
 import Slider from "react-slick";
 import { TexturedContainer } from "@/styles";
 
-import bubilla1 from "/public/img/Bubillas/bubilla1.jpg";
-import bubilla2 from "/public/img/Bubillas/bubilla2.jpg";
-import bubilla3 from "/public/img/Bubillas/bubilla3.jpg";
-import bubilla4 from "/public/img/Bubillas/bubilla4.jpg";
 import bubilla5 from "/public/img/Bubillas/bubilla5.jpg";
 import bubilla6 from "/public/img/Bubillas/bubilla6.jpg";
 import bubilla7 from "/public/img/Bubillas/bubilla7.jpg";
 import bubilla8 from "/public/img/Bubillas/bubilla8.jpg";
-import bubilla9 from "/public/img/Bubillas/bubilla9.jpg";
-import bubilla10 from "/public/img/Bubillas/bubilla10.jpg";
+import bubilla11 from "/public/img/Bubillas/bubilla11.jpg";
 
 import Image from "next/image";
 import backArrow from "/public/img/FLECHA-back.png";
@@ -33,7 +28,7 @@ const CustomContainer = styled(TexturedContainer)`
   }
 
   h2:before {
-    content: "BUBILLAS";
+    content: "BUBILLAS PREÑADAS";
     font-size: 10rem;
     font-weight: 100;
     display: block;
@@ -57,14 +52,15 @@ const CustomContainer = styled(TexturedContainer)`
 
   @media screen and (max-width: 768px) {
     h2 {
-      font-size: 3.3rem;
+      font-size: 2.5rem;
       word-wrap: break-word;
-      line-height: 3rem;
+      line-height: 2.5rem;
     }
 
     h2:before {
-      font-size: 5rem;
-      top: -10%;
+      font-size: 2.5rem;
+      top: -5%;
+      content: "CATÁLOGO DE BUBILLAS PREÑADAS";
     }
 
     .subtitle {
@@ -177,11 +173,13 @@ export default function BubillaSection() {
     <CustomContainer id="bubillas-container">
       <div className="relative title-container">
         <h2 className="text-secondary mx-auto  text-center md:text-left  mb-5">
-          BUBILLAS
+          CATÁLOGO DE BUBILLAS PREÑADAS
         </h2>
         <p className="subtitle text-black text-center text-xl my-5 text-base px-3">
-          Bubillas 5/8 de nuestras mejores búfalas <br /> Disponibles para la
-          venta. Promedio de 4 a 6 meses de gestación. <br />{" "}
+          Disponibles para la venta bubillas certificadas 5/8 por nuestras{" "}
+          <br />
+          mejores búfalas puras, con promedio de 4 a 6 meses de gestación.{" "}
+          <br />
           <span className="font-bold text-2xl">$1300 C/U</span>
         </p>
       </div>
@@ -191,42 +189,6 @@ export default function BubillaSection() {
           {...settings}
           className="text-center md:px-0 px-5 w-4/5 md:w-2/5 3xl:w-1/5 mx-auto"
         >
-          <div className="image-container">
-            <Image
-              alt="Bubilla Don Bufalo"
-              src={bubilla1}
-              width={500}
-              height={500}
-              className="rounded-lg"
-            />
-          </div>
-          <div className="image-container">
-            <Image
-              alt="Bubilla Don Bufalo"
-              src={bubilla2}
-              width={500}
-              height={500}
-              className="rounded-lg"
-            />
-          </div>
-          <div className="image-container">
-            <Image
-              alt="Bubilla Don Bufalo"
-              src={bubilla3}
-              width={500}
-              height={500}
-              className="rounded-lg"
-            />
-          </div>
-          <div className="image-container">
-            <Image
-              alt="Bubilla Don Bufalo"
-              src={bubilla4}
-              width={500}
-              height={500}
-              className="rounded-lg"
-            />
-          </div>
           <div className="image-container">
             <Image
               alt="Bubilla Don Bufalo"
@@ -263,10 +225,19 @@ export default function BubillaSection() {
               className="rounded-lg"
             />
           </div>
+          <div className="image-container">
+            <Image
+              alt="Bubilla Don Bufalo"
+              src={bubilla11}
+              width={500}
+              height={500}
+              className="rounded-lg"
+            />
+          </div>
         </CustomSlider>
 
         <WhatsappButton
-          href={`https://wa.me/584146429164?text=Hola%2C%20me%20interesa%20una%20bubilla
+          href={`https://donbufalo.com/whatsapp-bubillas
           `}
           target="_blank"
           className="flex flex-row items-center justify-center w-3/6 md:w-1/6 mx-auto"

@@ -6,7 +6,6 @@ export default function Reveal({
   width = "fit-content",
   direction = "up",
 }) {
-  console.log(width);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const animation = useAnimation();
@@ -14,7 +13,6 @@ export default function Reveal({
   useEffect(() => {
     if (isInView) {
       animation.start("visible");
-      console.log("Me veo");
     }
   }, [isInView]);
 

@@ -1,12 +1,29 @@
 "use-client";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { DarkHeader } from "@/styles";
 import styled from "@emotion/styled";
 import { useForm } from "react-hook-form";
 import { Toaster, toast } from "sonner";
+import { PhoneInput } from "react-international-phone";
+import "react-international-phone/style.css";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+  Button,
+} from "@nextui-org/react";
+import FlagDropdown from "@/components/FlagDropdown";
+import { useFlagStore } from "@/stores/flagStore";
+import countries from "@/data/countries";
 
 const CustomFormContainer = styled.div`
   padding-bottom: 5rem;
+
+  button.group {
+    border-radius: 0;
+    border-top-left-radius: 0.5rem;
+  }
 `;
 
 const FormHeader = styled(DarkHeader)`
@@ -84,6 +101,14 @@ const CustomSubmit = styled(CustomInput)`
 
 export default function FormContainer() {
   const [formSent, setFormSent] = useState(false);
+  const [phonePlaceholder, setPhonePlaceholder] = useState(
+    countries[0].placeholder
+  );
+
+  const flag = useFlagStore((state) => state);
+
+  // const [selectedKeys, setSelectedKeys] = useState(new Set(["VE"]));
+
   const {
     register,
     handleSubmit,
@@ -91,17 +116,15 @@ export default function FormContainer() {
     formState: { errors },
     reset,
   } = useForm();
+
   const onSubmit = (data) => {
-    console.log("submited");
     //Prepare the data to be sent via post
     const formData = {
       nombre: data.nombre,
       apellido: data.apellido,
       correo: data.correo,
-      telefono: data.telefono,
-      mensaje: data.mensaje,
+      telefono: `${flag.code}${data.telefono}`,
     };
-    console.log(JSON.stringify(formData));
     // Send the data via post
     fetch("https://hook.eu1.make.com/4up0au4cthglccbn8dfmb55uusait36o", {
       method: "POST",
@@ -109,7 +132,6 @@ export default function FormContainer() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data);
         if (!data.ok) {
           toast.error("Error al enviar el mensaje", {
             description: "Si el problema persiste, comuníquese por WhatsApp",
@@ -222,44 +244,32 @@ export default function FormContainer() {
               <CustomLabel className="text-foreground" htmlFor="form-telefono">
                 Teléfono
               </CustomLabel>
-              <CustomInput
-                className="bg-transparent"
-                id="form-telefono"
-                {...register("telefono", {
-                  required: {
-                    value: true,
-                    message: "Este campo es requerido*",
-                  },
-                  pattern: {
-                    value: /^(0414|0416|0424|0426|0412|\+1)?[0-9]{11}$/,
-                    message:
-                      "Ingresa un teléfono válido (0XXX1234567 o 1XXXXXXXXXX)",
-                  },
-                })}
-              />
+              <div className="flex flex-row">
+                <FlagDropdown countries={countries} />
+
+                <CustomInput
+                  className="bg-transparent w-full"
+                  id="form-telefono"
+                  placeholder={flag.placeholder}
+                  {...register("telefono", {
+                    required: {
+                      value: true,
+                      message: "Este campo es requerido*",
+                    },
+
+                    pattern: {
+                      value: flag.regex,
+                      message: `Ingresa un teléfono válido. Ej: ${flag.placeholder} `,
+                    },
+                  })}
+                />
+              </div>
+
               {errors.telefono && (
                 <ErrorMessage>{errors.telefono.message}</ErrorMessage>
               )}
             </CustomDiv>
           </div>
-
-          <FormTextContainer className="flex flex-col md:mx-5 mt-6">
-            <CustomLabel className="text-foreground" htmlFor="form-mensaje">
-              Mensaje
-            </CustomLabel>
-            <CustomTextArea
-              id="form-mensaje"
-              {...register("mensaje", {
-                required: {
-                  value: true,
-                  message: "Este campo es requerido*",
-                },
-              })}
-            ></CustomTextArea>
-            {errors.mensaje && (
-              <ErrorMessage>{errors.mensaje.message}</ErrorMessage>
-            )}
-          </FormTextContainer>
 
           <CustomSubmit
             className="md:ml-auto md:mr-5 mx-auto md:self-end bg-foreground hover:bg-foregroundDarker text-darkText hover:cursor-pointer"

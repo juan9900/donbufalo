@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import Image from "next/image";
 import planImg from "/public/img/IMAGEN-3.webp";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const BorderedText = styled.p`
   border-radius: 10rem;
@@ -40,7 +41,7 @@ const FullHeader = styled(DarkHeader)`
     line-height: 2.7rem;
   }
 `;
-const PlanDownloadButton = styled.a`
+const PlanDownloadButton = styled(Link)`
   font-family: "Anzeigen", sans-serif;
   font-size: 3.2rem;
 
@@ -87,7 +88,7 @@ export default function PlanContainer() {
         TE OBSEQUIAMOS NUESTRO PLAN SANITARIO
       </FullHeader>
       <PlanDownloadButton
-        href="/docs/Plan Sanitario Donbufalo.pdf"
+        href="/plan-sanitario"
         target="_blank"
         className="text-foreground bg-secondary md:px-20 px-10 mx-auto md:my-0 mt-10"
       >

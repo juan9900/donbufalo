@@ -1,7 +1,5 @@
 import styled from "@emotion/styled";
 import Image from "next/image";
-import testimonialImg from "/public/img/testimonial.png";
-import Reveal from "@/components/Reveal";
 
 const TestimonialCardContainer = styled.div`
   position: relative;

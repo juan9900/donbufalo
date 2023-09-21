@@ -21,29 +21,36 @@ function formatDateToDDMMYYYY(timestamp) {
 
 const calculateYears = (date) => {
   const birthdateArray = date.split("/"); // Assuming birthdate is in 'DD-MM-YYYY' format
-  console.log("golis");
   const birthYear = parseInt(birthdateArray[2], 10);
-  const birthMonth = parseInt(birthdateArray[1], 10);
+  const birthMonth = parseInt(birthdateArray[1], 10) - 1; // Months are zero-based
   const birthDay = parseInt(birthdateArray[0], 10);
-  console.log({ birthYear });
 
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
-  const currentMonth = currentDate.getMonth() + 1; // Months are zero-based, so we add 1
+  const currentMonth = currentDate.getMonth();
   const currentDay = currentDate.getDate();
 
-  let age = currentYear - birthYear;
-  console.log({ age });
+  let ageYears = currentYear - birthYear;
+  let ageMonths = currentMonth - birthMonth;
+  let ageDays = currentDay - birthDay;
 
   // Check if the birthdate for this year has not yet occurred
   if (
     currentMonth < birthMonth ||
     (currentMonth === birthMonth && currentDay < birthDay)
   ) {
-    age--;
+    ageYears--;
+    ageMonths = 12 - birthMonth + currentMonth - 1;
+    if (currentDay < birthDay) {
+      ageMonths--;
+      ageDays = ageDays + 30; // Assuming an average month length of 30 days
+    }
+  } else if (currentDay < birthDay) {
+    ageMonths--;
+    ageDays = ageDays + 30; // Assuming an average month length of 30 days
   }
-  console.log(age);
-  return age;
+
+  return { years: ageYears, months: ageMonths, days: ageDays };
 };
 
 export const useBufalo = () => {
@@ -61,6 +68,13 @@ export const useBufalo = () => {
     registro_madre_origen: "",
   });
   const [bufaloTabs, setBufaloTabs] = useState([
+    {
+      title: "",
+      content: "",
+    },
+  ]);
+
+  const [abuelaTabs, setAbuelaTabs] = useState([
     {
       title: "",
       content: "",
@@ -89,6 +103,8 @@ export const useBufalo = () => {
         age: age,
         foto_animal: response.data.foto_animal,
         ficha_animal: response.data.ficha_animal,
+        registro_abuela_origen: response.data.registro_abuela_origen,
+        registro_abuela_venezuela: response.data.registro_abuela_venezuela,
         registro_padre_venezolano: response.data.registro_padre_venezolano,
         registro_padre_origen: response.data.registro_padre_origen,
         registro_madre_venezolano: response.data.registro_madre_venezolano,
@@ -114,11 +130,22 @@ export const useBufalo = () => {
           content: bufaloDataFull.registro_madre_origen,
         },
       ]);
+
+      setAbuelaTabs([
+        {
+          title: "Abuela Or.",
+          content: bufaloDataFull.registro_abuela_origen,
+        },
+        {
+          title: "Abuela Ve.",
+          content: bufaloDataFull.registro_abuela_venezuela,
+        },
+      ]);
       setDataLoaded(true);
     };
 
     fecthBufalo();
   }, [id]);
 
-  return { dataLoaded, bufaloData, bufaloTabs, bufaloNotFound };
+  return { dataLoaded, bufaloData, bufaloTabs, bufaloNotFound, abuelaTabs };
 };

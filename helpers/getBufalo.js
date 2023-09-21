@@ -9,7 +9,6 @@ export const getBufalo = async (id) => {
       return { ok: true, data: docSnap.data() };
     } else {
       // doc.data() will be undefined in this case
-      console.log("No such document!");
       return { ok: false, error: "No such document!" };
     }
   } catch (e) {

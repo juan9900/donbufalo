@@ -60,7 +60,8 @@ export default function HeaderContainer() {
 
         <div className="flex-1 flex flex-col relative">
           <HeaderTitle className="text-foreground">
-            DON BÚFALO <HeaderTitleSpan>CENTRO DE CRÍA MURRAH</HeaderTitleSpan>
+            DON BÚFALO{" "}
+            <HeaderTitleSpan>CENTRO DE RECRÍA MURRAH</HeaderTitleSpan>
           </HeaderTitle>
           <BorderedText className="text-foreground text-center px-5 py-2 mt-5 border-foreground border">
             Más de 12 años de experiencia <br /> en el sector agropecuario

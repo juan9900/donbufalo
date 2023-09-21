@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { TexturedContainer } from "@/styles";
 
 const CustomContainer = styled(TexturedContainer)`
-  padding-top: 10rem;
+  padding-top: 6rem;
   padding-bottom: 5rem;
 
   position: relative;
@@ -16,7 +16,7 @@ const CustomContainer = styled(TexturedContainer)`
   }
 
   h2:before {
-    content: "CATÁLOGO DE BÚFALOS";
+    content: "REPRODUCTORES";
     font-size: 10rem;
     font-weight: 100;
     display: block;
@@ -42,12 +42,14 @@ const CustomContainer = styled(TexturedContainer)`
     h2 {
       font-size: 2.5rem;
       word-wrap: break-word;
-      line-height: 3rem;
+      line-height: 2.2rem;
     }
 
     h2:before {
-      font-size: 3rem;
-      top: -40%;
+      font-size: 2.5rem;
+      word-wrap: break-word;
+      padding: 0 1rem;
+      top: -10%;
     }
 
     .subtitle {
@@ -61,7 +63,7 @@ export default function CatalogContainer() {
     <CustomContainer id="catalogo-container">
       <div className="relative title-container">
         <h2 className="text-secondary mx-auto  text-center md:text-left">
-          CATÁLOGO DE BÚFALOS
+          CATÁLOGO DE REPRODUCTORES
         </h2>
       </div>
 

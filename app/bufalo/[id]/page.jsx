@@ -69,7 +69,10 @@ const CustomHeading = styled.h2`
 `;
 
 export default function BufaloScreen() {
-  const { bufaloData, bufaloTabs, dataLoaded, bufaloNotFound } = useBufalo();
+  const { bufaloData, bufaloTabs, dataLoaded, bufaloNotFound, abuelaTabs } =
+    useBufalo();
+
+  const abuelaTabsFilter = abuelaTabs.filter((tab) => tab.content !== "");
   if (bufaloData === false) {
     return (
       <CustomContainer className="overflow-hidden min-h-screen flex flex-col justify-center items-center px-10 text-center">
@@ -158,19 +161,23 @@ export default function BufaloScreen() {
             <CustomAnimalSubTitle className="text-4xl">
               Edad:{" "}
               <CustomAnimalDescription className="text-3xl">
-                {bufaloData.age > 1
-                  ? `${bufaloData.age} años`
-                  : bufaloData.age === 1
-                  ? "1 año"
-                  : "Menos de 1 año"}
+                {bufaloData.age.years === 1
+                  ? "1 año "
+                  : bufaloData.age.years === 0
+                  ? ""
+                  : `${bufaloData.age.years} años`}
+                {bufaloData.age.years > 1 && bufaloData.age.months > 0 && " y "}
+                {bufaloData.age.months === 1
+                  ? "1 mes"
+                  : bufaloData.age.months === 0
+                  ? ""
+                  : `${bufaloData.age.months} meses`}
               </CustomAnimalDescription>
             </CustomAnimalSubTitle>
           </Skeleton>
 
           <WhatsappButton
-            href={`https://wa.me/584146429164?text=Hola%2C%20me%20interesa%20el%20búfalo%20con%20arete%20${encodeURIComponent(
-              bufaloData.arete
-            )}`}
+            href={`https://donbufalo.com/whatsapp-reproductores`}
             target="_blank"
             isDisabled={!dataLoaded}
             className="flex flex-row items-center justify-center"
@@ -199,7 +206,21 @@ export default function BufaloScreen() {
         </Skeleton>
       </div>
 
-      <CustomHeading className="text-5xl text-black text-center mt-16">
+      {abuelaTabsFilter.length > 0 && (
+        <>
+          <CustomHeading className="text-5xl text-black text-center mt-16">
+            Registros de abuela
+          </CustomHeading>
+
+          <div className=" 3xl:w-2/6  md:w-3/6 mx-auto  ">
+            <Skeleton isLoaded={dataLoaded} className="rounded-lg mt-0  ">
+              <BufaloTabs tabs={abuelaTabs} />
+            </Skeleton>
+          </div>
+        </>
+      )}
+
+      <CustomHeading className="text-5xl text-black text-center mt-10">
         Registros de padres
       </CustomHeading>
       <div className=" 3xl:w-2/6  md:w-3/6 mx-auto  ">
