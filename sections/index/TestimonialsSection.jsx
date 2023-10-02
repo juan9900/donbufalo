@@ -31,7 +31,7 @@ export default function TestimonialsContainer() {
           <div className="flex-1 ">
             <TestimonialCard
               src={testimonial1}
-              text={`"Estoy muy contenta con el servicio de Don Búfalo fueron muy profesionales y atentos desde el primer contacto. Los animales que adquirí están en excelente estado de salud y son de alta calidad. ¡Recomiendo a Don Búfalo sin dudarlo!"`}
+              text={`"Estoy muy contento con el servicio de Don Búfalo fueron muy profesionales y atentos desde el primer contacto. Los animales que adquirí están en excelente estado de salud y son de alta calidad. ¡Recomiendo a Don Búfalo sin dudarlo!"`}
             />
           </div>
 

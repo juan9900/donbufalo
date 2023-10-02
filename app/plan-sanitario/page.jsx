@@ -67,26 +67,33 @@ export default function PlanPage() {
       telefono: `${flag.code}${data.telefono}`,
     };
     // Send the data via post
-    fetch("https://hook.eu1.make.com/77wlf9t8x7ayp4ho54vvbrp1aqxfcqfe", {
-      method: "POST",
-      body: JSON.stringify(formData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (!data.ok) {
-          toast.error("Error al enviar el mensaje", {
-            description: "Si el problema persiste, comuníquese por WhatsApp",
-          });
-          return;
-        }
-        toast.success("Mensaje enviado con éxito");
-        reset();
+    // fetch("https://hook.eu1.make.com/77wlf9t8x7ayp4ho54vvbrp1aqxfcqfe", {
+    //   method: "POST",
+    //   body: JSON.stringify(formData),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     if (!data.ok) {
+    //       toast.error("Error al enviar el mensaje", {
+    //         description: "Si el problema persiste, comuníquese por WhatsApp",
+    //       });
+    //       return;
+    //     }
+    //     toast.success("Mensaje enviado con éxito");
+    //     reset();
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error:", error);
+    //     toast.error("Error al enviar el mensaje", {
+    //       description: "Si el problema persiste, comuníquese por WhatsApp",
+    //     });
+    //   });
+    fetch("https://api.ipify.org?format=json")
+      .then((response) => {
+        response.json();
       })
-      .catch((error) => {
-        console.error("Error:", error);
-        toast.error("Error al enviar el mensaje", {
-          description: "Si el problema persiste, comuníquese por WhatsApp",
-        });
+      .then((data) => {
+        console.log(data);
       });
   };
 
