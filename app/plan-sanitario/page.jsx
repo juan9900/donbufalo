@@ -5,7 +5,7 @@ import FlagDropdown from "@/components/FlagDropdown";
 import countries from "@/data/countries";
 import { useFlagStore } from "@/stores/flagStore";
 import Link from "next/link";
-import { toast } from "sonner";
+import { Toaster, toast } from "sonner";
 
 const CustomContainer = styled.div`
   background: url("/img/TEXTURA.jpg");
@@ -63,8 +63,9 @@ export default function PlanPage() {
     const userIp = await fetch("https://api.ipify.org?format=json")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        return data.ip;
       });
+    console.log(userIp);
     const formData = {
       nombre: data.nombre,
       apellido: data.apellido,
@@ -83,12 +84,14 @@ export default function PlanPage() {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         if (!data.ok) {
           toast.error("Error al enviar el mensaje", {
             description: "Si el problema persiste, comuníquese por WhatsApp",
           });
           return;
         }
+
         toast.success("Mensaje enviado con éxito");
         reset();
       })
@@ -103,6 +106,7 @@ export default function PlanPage() {
   //create a form using react-hook-form with the following fields: name, lastname, email, phone
   return (
     <CustomContainer className="pt-20 ">
+      <Toaster richColors={true} />
       <Link
         className="text-xl rounded-lg px-5 py-2 ml-20 mt-20  bg-gray-200 ease-in-out duration-100 transition-all hover:bg-gray-300 text-black md:ml-20 ml-3 mr-auto md:mr-0 w-fit"
         href={"/#plan-container"}

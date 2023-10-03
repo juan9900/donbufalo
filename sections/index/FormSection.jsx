@@ -155,7 +155,7 @@ export default function FormContainer() {
         ¿DESEAS QUE NOS PONGAMOS <br /> EN CONTACTO CONTIGO?
       </FormHeader>
       <CustomContainer>
-        <Toaster />
+        <Toaster richColors={true} />
         <form
           className="mt-10 flex flex-col w-full px-10 md:w-2/3 md:mx-auto"
           onSubmit={handleSubmit(onSubmit)}
