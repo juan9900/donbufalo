@@ -33,6 +33,10 @@ const CustomContainer = styled.div`
       margin-top: 0;
     }
   }
+
+  @media screen and (min-width: 1920px) {
+    padding-top: 1rem;
+  }
 `;
 export default function ArrowDown() {
   return (

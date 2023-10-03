@@ -7,12 +7,18 @@ export default function BookContainer() {
   const BookContainer = styled(TexturedContainer)``;
   const DarkHeaderBookContainer = styled(DarkHeader)`
     font-size: 5.3em;
-    @media screen and (max-width: 720px) {
-      font-size: 3rem;
+    @media (min-width: 320px) {
+      font-size: 3.5em;
+      margin-bottom: 1rem;
     }
-
-    @media screen and (max-width: 1281px) {
-      font-size: 4rem;
+    @media (min-width: 641px) {
+      font-size: 3em;
+    }
+    @media (min-width: 1281px) {
+      font-size: 6em;
+    }
+    @media (min-width: 1281px) {
+      font-size: 5em;
     }
   `;
 
@@ -60,9 +66,9 @@ export default function BookContainer() {
 
   return (
     <BookContainer id="book-container">
-      <CustomContainer className="flex md:pt-5 flex-col items-start justify-center mx-auto   relative md:flex-row md:justify-between">
+      <CustomContainer className="flex md:pt-5 flex-col items-start justify-center mx-auto relative md:flex-row md:justify-between">
         <div className="w-full md:w-3/6 flex flex-col justify-center  pt-10  ">
-          <DarkHeaderBookContainer className="text-secondary md:text-left text-center">
+          <DarkHeaderBookContainer className="  text-secondary md:text-left text-center">
             LIBRO <br className="hidden" />
             <span className="pt-5 md:pt-0 md:inline md:mt-0 block">
               &quot;EL BÚFALO&quot;
@@ -100,14 +106,14 @@ export default function BookContainer() {
           </BuyButton>
         </div>
 
-        <div className="w-full h-full hidden md:block  md:w-2/5 flex  relative ">
+        <div className="w-0 h-full hidden md:block  md:w-2/5 flex  relative ">
           <BookImage
             className=" "
             fill
             objectFit="contain"
             src={bookImg}
             alt={`Libro "El Búfalo"`}
-            sizes="(max-width: 768px) 40vw, 50vw"
+            sizes="(max-width: 800px) 40vw, 50vw"
           />
         </div>
       </CustomContainer>

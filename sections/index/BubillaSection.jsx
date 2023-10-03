@@ -50,7 +50,84 @@ const CustomContainer = styled(TexturedContainer)`
     font-family: "Poppins-regular", sans-serif;
   }
 
-  @media screen and (max-width: 768px) {
+  @media (min-width: 320px) {
+    h2 {
+      font-size: 3.5rem;
+      word-wrap: break-word;
+      line-height: 3.2rem;
+    }
+    h2:before {
+      font-size: 3.5rem;
+      word-wrap: break-word;
+      padding: 0 1rem;
+      top: -10%;
+    }
+    .subtitle {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (min-width: 481px) {
+    h2 {
+      font-size: 3.5rem;
+      word-wrap: break-word;
+      line-height: 3.2rem;
+    }
+
+    h2:before {
+      font-size: 3.5rem;
+      word-wrap: break-word;
+      padding: 0 1rem;
+      top: -60%;
+    }
+
+    .subtitle {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+  }
+  @media (min-width: 641px) {
+    h2 {
+      font-size: 2.5rem;
+      word-wrap: break-word;
+      line-height: 2.2rem;
+    }
+
+    h2:before {
+      font-size: 2.5rem;
+      word-wrap: break-word;
+      padding: 0 1rem;
+      top: -15%;
+    }
+
+    .subtitle {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (min-width: 950px) {
+    h2:before {
+      top: -15%;
+    }
+  }
+
+  @media (min-width: 1281px) {
+    h2 {
+      font-size: 6rem;
+      word-wrap: break-word;
+      line-height: 6rem;
+    }
+    h2:before {
+      font-size: 7rem;
+      word-wrap: break-word;
+      padding: 0 1rem;
+      top: -20%;
+    }
+  }
+
+  /* @media screen and (max-width: 768px) {
     h2 {
       font-size: 2.5rem;
       word-wrap: break-word;
@@ -67,7 +144,7 @@ const CustomContainer = styled(TexturedContainer)`
       margin-top: 0;
       font-size: 1.2rem;
     }
-  }
+  } */
 `;
 
 function SampleNextArrow(props) {
@@ -135,7 +212,62 @@ const CustomSlider = styled(Slider)`
     height: 100%;
   }
 
-  @media screen and (max-width: 768px) {
+  .slick-dots {
+    left: 0;
+  }
+  @media (min-width: 320px) {
+    height: 13rem;
+    margin-top: 1rem;
+  }
+
+  @media (min-width: 481px) {
+    height: 15rem;
+    margin-top: 1rem;
+    .slick-dots {
+      bottom: -25px;
+    }
+  }
+
+  @media (min-width: 641px) {
+    height: 15rem;
+    margin-top: 1rem;
+    .slick-dots {
+      bottom: -35px;
+    }
+  }
+
+  @media (min-width: 950px) {
+    height: 20rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    .slick-dots {
+      bottom: 10px;
+    }
+
+    .slick-slider {
+      background-color: red;
+    }
+  }
+
+  @media (min-width: 1281px) {
+    height: 23rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    .slick-dots {
+      bottom: -10px;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    height: 18rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    .slick-dots {
+      bottom: -10px;
+    }
+  }
+
+  /* @media screen and (max-width: 768px) {
     height: 12rem;
     margin-top: 3rem;
     .slick-dots {
@@ -150,7 +282,7 @@ const CustomSlider = styled(Slider)`
   @media screen and (min-width: 1920px) {
     height: 23rem;
     margin-bottom: 5rem;
-  }
+  } */
 `;
 
 const WhatsappButton = styled.a`
@@ -161,7 +293,8 @@ const WhatsappButton = styled.a`
   padding: 0.2rem 2rem;
   border-radius: 0.6rem;
   border: none;
-  margin-top: 2rem;
+  margin-top: 0rem;
+  width: fit-content;
   cursor: pointer;
   transition: all 0.3s ease;
   &:hover {
@@ -187,7 +320,7 @@ export default function BubillaSection() {
       <div>
         <CustomSlider
           {...settings}
-          className="text-center md:px-0 px-5 w-4/5 md:w-2/5 3xl:w-1/5 mx-auto"
+          className="text-center md:px-0 px-5 w-4/5 md:w-2/5 3xl:w-1/5 mx-auto "
         >
           <div className="image-container">
             <Image

@@ -78,7 +78,7 @@ const FloatingImg = styled(Image)`
   left: 50% !important;
   transform: translateX(-50%) !important;
 
-  @media screen and (max-width: 1281px) {
+  /* @media screen and (max-width: 1281px) {
     width: 45%;
     bottom: 65% !important;
   }
@@ -87,9 +87,37 @@ const FloatingImg = styled(Image)`
     bottom: 80% !important;
   }
 
-  @media screen and (min-width: 1920px) {
-    width: 28%;
-    bottom: 70% !important;
+  @media screen and (min-width: 1281px) {
+    width: 35%;
+    bottom: 75% !important;
+  } */
+  @media (min-width: 320px) {
+    /* smartphones, iPhone, portrait 480x320 phones */
+    bottom: 80% !important;
+  }
+  @media (min-width: 481px) {
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+  }
+  @media (min-width: 641px) {
+    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+    bottom: 85% !important;
+    width: 45%;
+  }
+  @media (min-width: 961px) {
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+    width: 35%;
+  }
+  @media (min-width: 1025px) {
+    /* big landscape tablets, laptops, and desktops */
+    bottom: 75% !important;
+  }
+  @media (min-width: 1281px) {
+    /* hi-res laptops and desktops */
+    bottom: 75% !important;
+  }
+
+  @media (min-width: 1920px) {
+    bottom: 80% !important;
   }
 `;
 

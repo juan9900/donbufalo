@@ -4,7 +4,7 @@ import { TexturedContainer } from "@/styles";
 
 const CustomContainer = styled(TexturedContainer)`
   padding-top: 6rem;
-  padding-bottom: 5rem;
+  padding-bottom: 3rem;
 
   position: relative;
 
@@ -37,8 +37,77 @@ const CustomContainer = styled(TexturedContainer)`
     margin-top: -2rem;
     font-family: "Poppins-regular", sans-serif;
   }
+  @media (min-width: 320px) {
+    h2 {
+      font-size: 3.5rem;
+      word-wrap: break-word;
+      line-height: 3.2rem;
+    }
+    h2:before {
+      font-size: 3.5rem;
+      word-wrap: break-word;
+      padding: 0 1rem;
+      top: -20%;
+    }
+    .subtitle {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+  }
 
-  @media screen and (max-width: 768px) {
+  @media (min-width: 481px) {
+    h2 {
+      font-size: 3.5rem;
+      word-wrap: break-word;
+      line-height: 3.2rem;
+    }
+
+    h2:before {
+      font-size: 3.5rem;
+      word-wrap: break-word;
+      padding: 0 1rem;
+      top: -60%;
+    }
+
+    .subtitle {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+  }
+  @media (min-width: 641px) {
+    h2 {
+      font-size: 2.5rem;
+      word-wrap: break-word;
+      line-height: 2.2rem;
+    }
+
+    h2:before {
+      font-size: 2.5rem;
+      word-wrap: break-word;
+      padding: 0 1rem;
+      top: -60%;
+    }
+
+    .subtitle {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (min-width: 1281px) {
+    h2 {
+      font-size: 6rem;
+      word-wrap: break-word;
+      line-height: 6rem;
+    }
+    h2:before {
+      font-size: 7rem;
+      word-wrap: break-word;
+      padding: 0 1rem;
+      top: -45%;
+    }
+  }
+  /* @media screen and (max-width: 768px) {
     h2 {
       font-size: 2.5rem;
       word-wrap: break-word;
@@ -56,7 +125,7 @@ const CustomContainer = styled(TexturedContainer)`
       margin-top: 0;
       font-size: 1.2rem;
     }
-  }
+  } */
 `;
 export default function CatalogContainer() {
   return (

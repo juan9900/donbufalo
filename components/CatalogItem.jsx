@@ -24,8 +24,24 @@ const CustomCard = styled(Link)`
     font-size: 1.5em;
   }
 
-  @media screen and (min-width: 1920px) {
+  @media (min-width: 641px) {
+    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+    width: 80%;
+  }
+  @media (min-width: 950px) {
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
     width: 70%;
+  }
+  @media (min-width: 1025px) {
+    /* big landscape tablets, laptops, and desktops */
+  }
+  @media (min-width: 1281px) {
+    /* hi-res laptops and desktops */
+    width: 77%;
+  }
+  @media (min-width: 1920px) {
+    /* hi-res laptops and desktops */
+    width: 75%;
   }
 `;
 

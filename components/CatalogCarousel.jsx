@@ -73,7 +73,16 @@ const settings = {
       },
     },
     {
-      breakpoint: 780,
+      breakpoint: 950,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        dots: false,
+        infinite: false,
+      },
+    },
+    {
+      breakpoint: 480,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -110,7 +119,7 @@ const CustomSlider = styled(Slider)`
     }
   }
   @media screen and (min-width: 1920px) {
-    height: 35rem;
+    height: 30rem;
   }
 `;
 
