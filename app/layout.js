@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         <CustomNavbar />
 
         <main className="">{children}</main>
-        <FacebookPixel />
+        {/* <FacebookPixel /> */}
       </body>
     </html>
     // </ThemeProvider>
