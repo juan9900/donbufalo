@@ -8,7 +8,7 @@ import CustomNavbar from "@/components/CustomNavbar";
 import "tailwindcss/tailwind.css";
 import Footer from "@/components/Footer";
 import { useRouter } from "next/navigation";
-import FacebookPixel from "@/components/FacebookPixel";
+// import FacebookPixel from "@/components/FacebookPixel";
 
 const inter = Inter({ subsets: ["latin"] });
 
