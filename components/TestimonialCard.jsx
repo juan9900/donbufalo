@@ -21,10 +21,20 @@ const TestimonialCardContainer = styled.div`
   }
 
   @media screen and (max-width: 768px) {
-    margin: 5rem 0 7rem 0;
+    margin: 1rem 0 1rem 0;
     &:after {
       display: none;
       opacity: 0;
+    }
+  }
+
+  @media (min-width: 641px) {
+    margin-bottom: 3rem;
+  }
+
+  @media (max-width: 1280px) {
+    &:after {
+      display: none;
     }
   }
 `;
@@ -50,19 +60,32 @@ const CustomCard = styled.div`
     top: 83%;
   }
 
-  @media screen and (max-width: 768px) {
-    margin: 0 0 7rem 0;
+  @media screen and (min-width: 320px) {
+    margin: 0 0 4rem 0;
+    padding-bottom: 3rem;
     &:before {
       display: none;
     }
   }
 
-  @media screen and (max-width: 1281px) {
+  @media (min-width: 641px) {
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 1281px) {
     margin: 0 1rem;
+    padding-bottom: 1rem;
+    &:before {
+      top: 90%;
+      display: block;
+    }
   }
 
   @media screen and (min-width: 1920px) {
     padding-bottom: 3rem;
+    &:before {
+      top: 90%;
+    }
   }
 `;
 
@@ -93,31 +116,34 @@ const FloatingImg = styled(Image)`
   } */
   @media (min-width: 320px) {
     /* smartphones, iPhone, portrait 480x320 phones */
-    bottom: 80% !important;
+    bottom: 85% !important;
   }
   @media (min-width: 481px) {
     /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    bottom: 70% !important;
+    width: 27%;
   }
   @media (min-width: 641px) {
     /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-    bottom: 85% !important;
-    width: 45%;
+    bottom: 75% !important;
+    width: 20%;
   }
   @media (min-width: 961px) {
     /* tablet, landscape iPad, lo-res laptops ands desktops */
-    width: 35%;
+    width: 20%;
   }
   @media (min-width: 1025px) {
     /* big landscape tablets, laptops, and desktops */
-    bottom: 75% !important;
+    bottom: 85% !important;
+    width: 35%;
   }
   @media (min-width: 1281px) {
     /* hi-res laptops and desktops */
-    bottom: 75% !important;
+    bottom: 85% !important;
   }
 
   @media (min-width: 1920px) {
-    bottom: 80% !important;
+    bottom: 85% !important;
   }
 `;
 

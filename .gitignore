@@ -33,3 +33,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+#meta pixel
+/public/scripts
+/components/FacebookPixel.jsx
+/app/lib

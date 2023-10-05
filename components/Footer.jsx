@@ -14,9 +14,6 @@ const CustomFooter = styled.div`
 
 const SocialLogo = styled(Image)`
   /* width: 3%; */
-  @media screen and (max-width: 768px) {
-    width: 100%;
-  }
 `;
 
 export default function Footer() {
