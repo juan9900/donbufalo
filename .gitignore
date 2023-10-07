@@ -35,7 +35,3 @@ yarn-error.log*
 next-env.d.ts
 
 
-#meta pixel
-/public/scripts
-/components/FacebookPixel.jsx
-/app/lib
