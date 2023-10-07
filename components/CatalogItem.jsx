@@ -85,7 +85,6 @@ export default function CatalogItem({ code, imageUrl, category, birthday }) {
         event("Lead");
         gtmEvent("Lead");
       }}
-      target="_blank"
       href={`/bufalo/${code}`}
       className="flex flex-col h-full bg-cardBackground"
     >
