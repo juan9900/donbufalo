@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { Skeleton } from "@nextui-org/skeleton";
 import Image from "next/image";
 import { Link, toggle } from "@nextui-org/react";
+import { event } from "@/app/lib/fpixel";
 
 const CustomCard = styled(Link)`
   width: 80%;
@@ -79,6 +80,9 @@ export default function CatalogItem({ code, imageUrl, category, birthday }) {
 
   return (
     <CustomCard
+      onClick={() => {
+        event("Lead");
+      }}
       href={`/bufalo/${code}`}
       className="flex flex-col h-full bg-cardBackground"
     >

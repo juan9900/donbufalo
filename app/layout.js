@@ -8,7 +8,9 @@ import CustomNavbar from "@/components/CustomNavbar";
 import "tailwindcss/tailwind.css";
 import Footer from "@/components/Footer";
 import { useRouter } from "next/navigation";
-// import FacebookPixel from "@/components/FacebookPixel";
+import FacebookPixel from "@/components/FacebookPixel";
+import { Suspense } from "react";
+import Analytics from "@/components/Analytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +29,10 @@ export default function RootLayout({ children }) {
         <CustomNavbar />
 
         <main className="">{children}</main>
-        {/* <FacebookPixel /> */}
+        <Suspense>
+          <Analytics />
+        </Suspense>
+        <FacebookPixel />
       </body>
     </html>
     // </ThemeProvider>
