@@ -16,6 +16,7 @@ import {
 import FlagDropdown from "@/components/FlagDropdown";
 import { useFlagStore } from "@/stores/flagStore";
 import countries from "@/data/countries";
+import { event } from "@/app/lib/fpixel";
 
 const CustomFormContainer = styled.div`
   padding-bottom: 5rem;
@@ -119,6 +120,7 @@ export default function FormContainer() {
 
   const onSubmit = (data) => {
     //Prepare the data to be sent via post
+
     const formData = {
       nombre: data.nombre,
       apellido: data.apellido,
@@ -138,6 +140,7 @@ export default function FormContainer() {
           });
           return;
         }
+        event("Contact");
         toast.success("Mensaje enviado con éxito");
         reset();
       })

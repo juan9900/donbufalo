@@ -15,3 +15,18 @@ export const pageview = (url) => {
     });
   }
 };
+
+export const gtmEvent = (name, options = {}) => {
+  if (typeof window.dataLayer !== "undefined") {
+    window.dataLayer.push({
+      event: name,
+      ...options,
+    });
+    console.log(`Triggered event: ${name}`, dataLayer);
+  } else {
+    console.log({
+      event: name,
+      ...options,
+    });
+  }
+};

@@ -4,6 +4,7 @@ import { Skeleton } from "@nextui-org/skeleton";
 import Image from "next/image";
 import { Link, toggle } from "@nextui-org/react";
 import { event } from "@/app/lib/fpixel";
+import { gtmEvent } from "@/app/lib/gtm";
 
 const CustomCard = styled(Link)`
   width: 80%;
@@ -82,7 +83,9 @@ export default function CatalogItem({ code, imageUrl, category, birthday }) {
     <CustomCard
       onClick={() => {
         event("Lead");
+        gtmEvent("Lead");
       }}
+      target="_blank"
       href={`/bufalo/${code}`}
       className="flex flex-col h-full bg-cardBackground"
     >
