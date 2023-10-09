@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import Script from "next/script";
 import { useEffect, useState } from "react";
-import * as pixel from "/app/lib/fpixel_old";
+import * as pixelOld from "/app/lib/fpixel_old";
 
 const FacebookPixelOld = () => {
   const [loaded, setLoaded] = useState(false);
@@ -12,17 +12,17 @@ const FacebookPixelOld = () => {
   useEffect(() => {
     if (!loaded) return;
 
-    pixel.pageview();
+    pixelOld.OldPageview();
   }, [pathname, loaded]);
 
   return (
     <div>
       <Script
-        id="fb-pixel"
-        src="/scripts/pixel.js"
+        id="fb-pixel-old"
+        src="/scripts/pixelOld.js"
         strategy="afterInteractive"
         onLoad={() => setLoaded(true)}
-        data-pixel-id={pixel.FB_PIXEL_ID}
+        data-pixel-id-old={pixelOld.FB_PIXEL_ID}
       />
     </div>
   );
