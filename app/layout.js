@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import FacebookPixel from "@/components/FacebookPixel";
 import { Suspense } from "react";
 import Analytics from "@/components/Analytics";
+import FacebookPixelOld from "@/components/FacebookPixelOld";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
           <Analytics />
         </Suspense>
         <FacebookPixel />
+        <FacebookPixelOld />
       </body>
     </html>
     // </ThemeProvider>
