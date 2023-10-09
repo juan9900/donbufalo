@@ -4,19 +4,12 @@ import { DarkHeader } from "@/styles";
 import styled from "@emotion/styled";
 import { useForm } from "react-hook-form";
 import { Toaster, toast } from "sonner";
-import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
-import {
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
-  Button,
-} from "@nextui-org/react";
 import FlagDropdown from "@/components/FlagDropdown";
 import { useFlagStore } from "@/stores/flagStore";
 import countries from "@/data/countries";
 import { event } from "@/app/lib/fpixel";
+import * as pixel from "/app/lib/fpixel";
 
 const CustomFormContainer = styled.div`
   padding-bottom: 5rem;
@@ -142,6 +135,11 @@ export default function FormContainer() {
         }
         event("Contact");
         toast.success("Mensaje enviado con éxito");
+        // Trigger a custom event for the pixel 1
+        pixel.event(
+          process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID,
+          "btn-formulario-contacto"
+        );
         reset();
       })
       .catch((error) => {

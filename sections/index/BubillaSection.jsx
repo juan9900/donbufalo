@@ -13,6 +13,7 @@ import Image from "next/image";
 import backArrow from "/public/img/FLECHA-back.png";
 import nextArrow from "/public/img/FLECHA.png";
 import wsLogo from "/public/icons/WS.svg";
+import * as pixel from "/app/lib/fpixel";
 
 const CustomContainer = styled(TexturedContainer)`
   padding-top: 5rem;
@@ -374,6 +375,12 @@ export default function BubillaSection() {
           `}
           target="_blank"
           className="flex flex-row items-center justify-center w-3/6 md:w-1/6 mx-auto"
+          onClick={() => {
+            pixel.event(
+              process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID,
+              "btn-bubillas"
+            );
+          }}
         >
           <Image
             className="h-[2rem] w-[2rem] pr-1 py-1"

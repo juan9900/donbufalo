@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { Skeleton } from "@nextui-org/skeleton";
 import Image from "next/image";
 import { Link, toggle } from "@nextui-org/react";
-import { event } from "@/app/lib/fpixel";
+import * as pixel from "/app/lib/fpixel";
 import { gtmEvent } from "@/app/lib/gtm";
 
 const CustomCard = styled(Link)`
@@ -82,8 +82,7 @@ export default function CatalogItem({ code, imageUrl, category, birthday }) {
   return (
     <CustomCard
       onClick={() => {
-        event("Lead");
-        gtmEvent("Lead");
+        pixel.event(process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID, "ViewContent");
       }}
       href={`/bufalo/${code}`}
       className="flex flex-col h-full bg-cardBackground"

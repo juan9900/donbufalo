@@ -7,6 +7,7 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import wsLogo from "/public/icons/WS.svg";
 import { useBufalo } from "@/hooks/useBufalo";
+import * as pixel from "/app/lib/fpixel";
 
 const CustomContainer = styled.div`
   background: url("/img/TEXTURA.jpg");
@@ -181,6 +182,12 @@ export default function BufaloScreen() {
             target="_blank"
             isDisabled={!dataLoaded}
             className="flex flex-row items-center justify-center"
+            onClick={() => {
+              pixel.event(
+                process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID,
+                `btn-${bufaloData.arete}`
+              );
+            }}
           >
             <Image
               className="h-[2rem] w-[2rem] pr-1 py-1"

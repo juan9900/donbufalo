@@ -6,6 +6,7 @@ import countries from "@/data/countries";
 import { useFlagStore } from "@/stores/flagStore";
 import Link from "next/link";
 import { Toaster, toast } from "sonner";
+import * as pixel from "/app/lib/fpixel";
 
 const CustomContainer = styled.div`
   background: url("/img/TEXTURA.jpg");
@@ -93,6 +94,9 @@ export default function PlanPage() {
         }
 
         toast.success("Mensaje enviado con éxito");
+
+        // Trigger a custom event for the pixel 1
+        pixel.event(process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID, "btn-sanitario");
         reset();
       })
       .catch((error) => {

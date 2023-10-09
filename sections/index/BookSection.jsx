@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { DarkHeader, DarkText, TexturedContainer } from "@/styles";
 import bookImg from "/public/img/LIBRO.webp";
 import Image from "next/image";
+import * as pixel from "/app/lib/fpixel";
 
 export default function BookContainer() {
   const BookContainer = styled(TexturedContainer)``;
@@ -101,6 +102,12 @@ export default function BookContainer() {
             href="https://donbufalo.com/libro-bufalos"
             target="_blank"
             className="text-foreground bg-secondary hover:bg-secondaryDarker"
+            onClick={() => {
+              pixel.event(
+                process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID,
+                "btn-libro"
+              );
+            }}
           >
             ¡CÓMPRALO AHORA!
           </BuyButton>

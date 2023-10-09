@@ -1,6 +1,7 @@
 import wsLogo from "/public/icons/WS.svg";
 import Image from "next/image";
 import styled from "@emotion/styled";
+import * as pixel from "/app/lib/fpixel";
 
 const ButtonText = styled.div`
   font-family: "Poppins-Regular";
@@ -23,9 +24,16 @@ const ButtonText = styled.div`
   }
 `;
 
+const handleClick = () => {
+  pixel.event(process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID, "btn-whatsapp-duda");
+};
+
 export default function WhatsappButton() {
   return (
-    <div className="fixed  bottom-20 lg:bottom-5 right-3 z-50 ">
+    <div
+      onClick={handleClick}
+      className="fixed  bottom-20 lg:bottom-5 right-3 z-50 "
+    >
       <a
         href="https://donbufalo.com/whatsapp-web"
         target="_blank"
