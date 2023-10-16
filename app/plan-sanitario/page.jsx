@@ -118,12 +118,7 @@ export default function PlanPage() {
   return (
     <CustomContainer className="pt-20 xl:mt-11 ">
       <Toaster richColors={true} />
-      <Link
-        className="text-xl  px-5 py-2 ml-20 mt-20  bg-gray-200 ease-in-out duration-100 transition-all hover:bg-gray-300 text-secondary rounded-lg md:ml-20 ml-3 mr-auto md:mr-0 w-fit "
-        href={"/#plan-container"}
-      >
-        {"Volver a inicio"}
-      </Link>
+
       <CustomHeader className=" text-center text-secondary text-7xl font-bold">
         PLAN SANITARIO
       </CustomHeader>
