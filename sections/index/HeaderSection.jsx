@@ -11,7 +11,7 @@ export default function HeaderContainer() {
     background-size: cover;
     background-position: 0 60%;
     background-repeat: no-repeat;
-    @media screen and (max-width: 1281px) {
+    @media screen and (max-width: 1400px) {
       background: url("/img/FONDO.jpg");
     }
   `;
@@ -22,9 +22,16 @@ export default function HeaderContainer() {
     text-align: center;
     font-family: "Anzeigen", sans-serif;
     line-height: 5rem;
-    @media (max-width: 768px) {
+    @media (min-width: 300px) {
       font-size: 4rem;
       line-height: 3rem;
+    }
+    @media (min-width: 1300px) {
+      font-size: 5rem;
+      line-height: 3rem;
+    }
+
+    @media (min-width: 1400px) {
     }
   `;
 

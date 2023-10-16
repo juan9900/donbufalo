@@ -8,7 +8,7 @@ const CustomContainer = styled.div`
   background-size: cover;
   background-position: 0 100%;
 
-  @media screen and (max-width: 1281px) {
+  @media screen and (max-width: 1400px) {
     padding: 3rem 1rem;
     background: url("/img/TEXTURA.jpg");
   }

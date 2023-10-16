@@ -9,8 +9,6 @@ const CustomDropdown = styled.div`
   flex-direction: row;
   align-items: center;
   position: relative;
-  padding-right: 2rem;
-  width: 15%;
   @media screen and (max-width: 768px) {
     width: 25%;
   }
@@ -80,7 +78,7 @@ export default function FlagDropdown({ countries, color = "foreground" }) {
     <CustomDropdown
       ref={dropdownRef}
       onClick={toggleFlagList}
-      className="  cursor-pointer pl-2"
+      className="  cursor-pointer pl-2 pr-2"
     >
       <Flag country={flag.key} className="mr-1" />
       <p className={`text-${color}`}>{flag.code}</p>

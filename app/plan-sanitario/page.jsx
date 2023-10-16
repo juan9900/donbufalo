@@ -9,7 +9,7 @@ import { Toaster, toast } from "sonner";
 import * as pixel from "/app/lib/fpixel";
 
 const CustomContainer = styled.div`
-  background: url("/img/TEXTURA.jpg");
+  background: url("/img/FONDO-PLAN.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: repeat;
@@ -18,6 +18,7 @@ const CustomContainer = styled.div`
 
 const CustomHeader = styled.h1`
   font-family: "Anzeigen";
+  color: #fff;
 
   @media screen and (max-width: 768px) {
     margin-top: 2rem;
@@ -29,13 +30,15 @@ const CustomHeader = styled.h1`
 
 const CustomSubHeader = styled.h2`
   font-family: "Poppins-Regular";
+  color: #fff;
 `;
 
 const CustomInput = styled.input`
   /* border: 3px solid #592c33; */
   width: 100%;
+  color: #fff;
   border-radius: 0.3rem;
-  padding: 0.3rem 0.3rem;
+  padding: 0.3rem 0.5rem;
   outline: none;
   transition: all 0.1s;
   position: relative;
@@ -45,8 +48,12 @@ const CustomInput = styled.input`
 `;
 
 const CustomLabel = styled.label`
-  font-family: "Poppins-Regular";
-  font-size: 1.2rem;
+  font-family: "Anzeigen";
+  font-size: 1.7rem;
+  color: #fff;
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
 `;
 
 export default function PlanPage() {
@@ -109,10 +116,10 @@ export default function PlanPage() {
 
   //create a form using react-hook-form with the following fields: name, lastname, email, phone
   return (
-    <CustomContainer className="pt-20 ">
+    <CustomContainer className="pt-20 xl:mt-11 ">
       <Toaster richColors={true} />
       <Link
-        className="text-xl rounded-lg px-5 py-2 ml-20 mt-20  bg-gray-200 ease-in-out duration-100 transition-all hover:bg-gray-300 text-black md:ml-20 ml-3 mr-auto md:mr-0 w-fit"
+        className="text-xl  px-5 py-2 ml-20 mt-20  bg-gray-200 ease-in-out duration-100 transition-all hover:bg-gray-300 text-secondary rounded-lg md:ml-20 ml-3 mr-auto md:mr-0 w-fit "
         href={"/#plan-container"}
       >
         {"Volver a inicio"}
@@ -120,20 +127,20 @@ export default function PlanPage() {
       <CustomHeader className=" text-center text-secondary text-7xl font-bold">
         PLAN SANITARIO
       </CustomHeader>
-      <CustomSubHeader className=" text-center text-black">
+      <CustomSubHeader className=" text-center px-3 md:px-0">
         Una vez completado el formulario el plan sanitario será enviado a su
         dirección de correo electrónico.
       </CustomSubHeader>
 
-      <div className=" w-5/6 lg:w-2/6 mx-auto pb-20">
+      <div className=" w-5/6 lg:w-3/6 mx-auto pb-20">
         <form action="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
           <div className=" flex flex-col my-4">
-            <CustomLabel className="text-black" htmlFor="form-name">
-              Nombre
-            </CustomLabel>
-            <div className="border-4 border-secondary rounded-lg">
+            <div className="border-b-1 border-foreground flex flex-row mt-10">
+              <CustomLabel className=" flex" htmlFor="form-name">
+                Nombre:
+              </CustomLabel>
               <CustomInput
-                className="bg-transparent text-black "
+                className="bg-transparent  "
                 id="form-name"
                 {...register("nombre", {
                   required: {
@@ -157,12 +164,12 @@ export default function PlanPage() {
             )}
           </div>
           <div className=" flex flex-col my-4">
-            <CustomLabel className="text-black" htmlFor="form-name">
-              Apellido
-            </CustomLabel>
-            <div className="border-4 border-secondary rounded-lg">
+            <div className="border-b-1 border-foreground flex flex-row mt-10">
+              <CustomLabel className="" htmlFor="form-name">
+                Apellido:
+              </CustomLabel>
               <CustomInput
-                className="bg-transparent text-black "
+                className="bg-transparent  "
                 id="form-name"
                 {...register("apellido", {
                   required: {
@@ -186,12 +193,12 @@ export default function PlanPage() {
           </div>
 
           <div className=" flex flex-col my-4">
-            <CustomLabel className="text-black" htmlFor="form-name">
-              Correo Electrónico
-            </CustomLabel>
-            <div className="border-4 border-secondary rounded-lg">
+            <div className="border-b-1 border-foreground flex flex-row mt-10">
+              <CustomLabel className=" w-fit" htmlFor="form-name">
+                Correo Electrónico:
+              </CustomLabel>
               <CustomInput
-                className="bg-transparent text-black  "
+                className="bg-transparent  flex-1  "
                 id="form-correo"
                 {...register("correo", {
                   required: {
@@ -210,14 +217,14 @@ export default function PlanPage() {
             )}
           </div>
           <div className=" flex flex-col my-4 justify-center ">
-            <CustomLabel className="text-black" htmlFor="form-name">
-              Teléfono
-            </CustomLabel>
-            <div className="flex flex-row w-full mx-auto border-4 border-secondary rounded-lg">
-              <FlagDropdown countries={countries} color={"black"} />
+            <div className="flex flex-row mt-10 w-full mx-auto border-b-1 border-foreground flex flex-row mt-10">
+              <CustomLabel className="mr-5" htmlFor="form-name">
+                Teléfono:
+              </CustomLabel>
+              <FlagDropdown countries={countries} className="pr-5" />
 
               <CustomInput
-                className="bg-transparent text-black w-full ml-2"
+                className="bg-transparent  w-full ml-2"
                 id="form-telefono"
                 placeholder={flag.placeholder}
                 {...register("telefono", {
@@ -238,9 +245,9 @@ export default function PlanPage() {
             )}
           </div>
           {/* Add a submit button that works with react hook form */}
-          <div className="w-full flex flex-row justify-end">
+          <div className="w-full flex flex-row mt-10 justify-end">
             <button
-              className="bg-secondary text-white font-bold py-2 px-4 rounded "
+              className="bg-foreground text-secondary font-bold py-2 px-4 rounded "
               type="submit"
             >
               Obtener plan
