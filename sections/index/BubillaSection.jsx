@@ -314,7 +314,7 @@ export default function BubillaSection() {
           <br />
           mejores búfalas puras, con promedio de 4 a 6 meses de gestación.{" "}
           <br />
-          <span className="font-bold text-2xl">$1600 C/U</span>
+          <span className="font-bold text-2xl">$1800 C/U</span>
         </p>
       </div>
 
@@ -378,7 +378,7 @@ export default function BubillaSection() {
           onClick={() => {
             pixel.event(
               process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID,
-              "btn-bubillas"
+              "btn-bubillas",
             );
           }}
         >
